@@ -1,0 +1,65 @@
+# Maintainer: Tux <info@archphile.org>
+# Based on AUR package created by:
+# Maintainer: Christian Hesse <mail@eworm.de
+# Contributor: Mika Fischer <mika.fischer@zoopnet.de>
+
+pkgname=squeezelite-archphile
+pkgver=1.6.4.r0.g75a72d5
+pkgrel=1
+pkgdesc='Lightweight headless squeezebox emulator'
+arch=('armv6h' 'armv7h')
+url='http://code.google.com/p/squeezelite/'
+license=(GPL3)
+depends=('alsa-lib' 'flac' 'libvorbis' 'libmad')
+makedepends=('git' 'alsa-lib' 'faad2' 'flac' 'libmad' 'libvorbis' 'mpg123'
+	'portaudio')
+optdepends=('faad2: Support for decoding AAC'
+	'mpg123: Support for decoding MP3'
+	'portaudio: Use of binary using portaudio for output')
+source=('git+https://code.google.com/p/squeezelite/'
+	'squeezelite.service'
+	'squeeze')
+sha1sums=('SKIP'
+          'c00a04548d47c5f6ce5665521a55cacb726f34a4'
+          '3743255f445b103e13822281df79971d87cf4ea8')
+
+pkgver() {
+	cd squeezelite/
+
+	if GITTAG="$(git describe --abbrev=0 --tags 2>/dev/null)"; then
+		echo "$(sed -e "s/^${pkgname%%-git}//" -e 's/^[-_/a-zA-Z]\+//' -e 's/[-_+]/./g' <<< ${GITTAG}).r$(git rev-list --count ${GITTAG}..).g$(git log -1 --format="%h")"
+	else
+		echo "0.r$(git rev-list --count master).g$(git log -1 --format="%h")"
+	fi
+}
+
+build() {
+	cd squeezelite/
+
+	echo "OPTS += -DPORTAUDIO" > Makefile.archpa
+	echo "CFLAGS += -Wall -fPIC -O2 \$(OPTS)" >> Makefile.archpa
+	echo "LDFLAGS += -lportaudio -lasound -lpthread -ldl -lrt" >> Makefile.archpa
+	echo "EXECUTABLE = squeezelite-pa" >> Makefile.archpa
+	echo "include Makefile" >> Makefile.archpa
+	make -f Makefile.archpa
+
+	make clean
+
+	echo "CFLAGS += -Wall -fPIC -O2" > Makefile.arch
+	echo "LDFLAGS += -lasound -lpthread -ldl -lrt" >> Makefile.arch
+	echo "EXECUTABLE = squeezelite" >> Makefile.arch
+	echo "include Makefile" >> Makefile.arch
+	make -f Makefile.arch
+}
+
+package() {
+	cd squeezelite/
+
+	# Main binary
+	install -m0755 -D squeezelite "${pkgdir}/usr/bin/squeezelite"
+	install -m755 -D squeezelite-pa "${pkgdir}/usr/bin/squeezelite-pa"
+        install -Dm644  "../squeezelite.service" "$pkgdir/usr/lib/systemd/system/squeezelite.service"
+        install -Dm644  "../squeeze" "$pkgdir/etc/conf.d/squeeze"
+}
+
+

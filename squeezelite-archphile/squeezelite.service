@@ -1,0 +1,13 @@
+[Unit]
+Description=Squeezelite Service
+After=network.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/conf.d/squeeze
+ExecStart=/usr/bin/squeezelite -n ${name} -d ${logtype}=${loglevel} -f ${logfile} -s ${server} 
+RestartSec=5
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
