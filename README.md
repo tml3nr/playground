@@ -3,7 +3,7 @@ playground
 
 Packages included:
 
-- squeezelite
+- squeezelite-archphile
 - alsaequal
 
 These packages will never be a part of archhpile distribution. Archphile is based on MPD and I don't like/suggest using an EQ.
