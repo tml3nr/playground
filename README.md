@@ -11,6 +11,6 @@ These packages will never be a part of archhpile distribution. Archphile is base
 
 If you want to test, please read these guides:
 
-http://archphile.org/lab/playground/squeezelite-guide.txt
-http://archphile.org/lab/playground/alsaequal-guide.txt
+- http://archphile.org/lab/playground/squeezelite-guide.txt
+- http://archphile.org/lab/playground/alsaequal-guide.txt
 
