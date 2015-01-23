@@ -112,6 +112,6 @@ General notes:
 --------------
 
 The above procedure works ok in general. However cubox-i users may find their sound level not to be 100%
-after reboot. I am going to play with this and find a solution in the next days.
+after reboot.
 
 
