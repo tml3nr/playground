@@ -56,14 +56,11 @@ systemctl enable squeezelite
 
 
 
-6. I can't believe that you disabled MPD/ympd in order to use squeezelite. 
-   Come on, think twice! Just undo:
+6. If you want to get rid of it and come back to initial configuration:
 
 pacman -Rcsn squeezebox-archphile
 systemctl start mpd ympd
 systemctl enable mpd ympd
 
    
-
-   and feel the power of MPD!
 
