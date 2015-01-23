@@ -61,3 +61,4 @@ package() {
 	install -m0755 -D squeezelite "${pkgdir}/usr/bin/squeezelite"
 	install -Dm644  "../squeezelite.service" "$pkgdir/usr/lib/systemd/system/squeezelite.service"
         install -Dm644  "../squeeze" "$pkgdir/etc/conf.d/squeeze"
+}
