@@ -15,13 +15,13 @@ If you want to experiment do the following:
 
 [playground]
 SigLevel = Never
-Server = http://archphile.org/repo/playground/playground-rpi/
+Server = http://archphile.org/repo/playground/playground-rpi
 
 - for Cubox-i and Udoo
 
 [playground]
 SigLevel = Never
-Server = http://archphile.org/repo/playground/playground-arm7/
+Server = http://archphile.org/repo/playground/playground-arm7
 
 
 
