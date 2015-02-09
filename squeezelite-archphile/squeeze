@@ -1,5 +1,0 @@
-server=<server ip>
-name=Archphile
-logtype=all
-loglevel=info
-logfile=/var/log/squeezelite.log
