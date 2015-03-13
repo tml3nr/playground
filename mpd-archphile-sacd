@@ -1,0 +1,83 @@
+#  Maintainer: Tux <info@archphile.org>
+
+pkgname=mpd-archphile-sacd
+_pkgname=mpd
+pkgver=0.19.7.215.g7030e8f
+pkgrel=1
+pkgdesc='Flexible, powerful, server-side application for playing music. Experimental version with support of SACD ISO playback'
+url='http://www.musicpd.org/'
+license=('GPL')
+arch=('armv6h' 'armv7h')
+depends=('audiofile' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient' 'boost-libs' 'libsoxr' 'ffmpeg-archphile')
+makedepends=('boost' 'doxygen' 'git')
+provides=("mpd=$pkgver")
+conflicts=('mpd' 'mpd-archphile')
+source=('$pkgname::http://git.musicpd.org/cgit/manisiutkin/mpd.git'
+         'tmpfiles.d'
+	       'mpd.conf')
+sha256sums=('SKIP'
+            ''
+            '')
+backup=('etc/mpd.conf')
+install=mpd.install
+
+pkgver() {
+  cd $pkgname
+
+  git describe | sed 's/^release-//; s/^v//; s/-/./g'
+}
+
+build() {
+  cd $_pkgname
+
+  ./autogen.sh
+
+  ./configure \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--enable-libmpdclient \
+		--enable-mad \
+		--enable-soxr \
+		--enable-ffmpeg \
+		--disable-ao \
+		--disable-jack \
+		--disable-modplug \
+		--disable-pulse \
+		--disable-shout \
+		--disable-sidplay \
+		--disable-soundcloud \
+		--disable-wavpack \
+		--disable-opus \
+		--disable-lame-encoder \
+		--disable-vorbis \
+		--disable-ipv6 \
+		--disable-recorder-output \
+		--disable-iso9660 \
+		--disable-zzip \
+		--disable-wildmidi \
+		--disable-oss \
+		--disable-fluidsynth \
+		--disable-gme \
+		--disable-bzip2 \
+		--with-zeroconf=no \
+		--with-systemdsystemunitdir=/usr/lib/systemd/system
+
+  make
+}
+
+package() {
+	cd "${srcdir}/${_pkgname}-${pkgver}"
+	
+	make DESTDIR="${pkgdir}" install
+
+	install -Dm644 ../mpd.conf "${pkgdir}"/etc/mpd.conf
+	install -Dm644 ../tmpfiles.d "${pkgdir}"/usr/lib/tmpfiles.d/mpd.conf
+	install -d -g 45 -o 45 "${pkgdir}"/var/lib/mpd/playlists
+
+	install -Dm644 "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
+	sed '/\[Service\]/a User=mpd' -i "${pkgdir}"/usr/lib/systemd/system/mpd.service
+	sed '/WantedBy=/c WantedBy=default.target' -i "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
+        sed '/ExecStart=/c ExecStart=/usr/bin/nice -n -16 /usr/bin/mpd --no-daemon' -i "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
+  find "$pkgdir" -type d -name '.git' -exec rm -r '{}' +
+}
+
