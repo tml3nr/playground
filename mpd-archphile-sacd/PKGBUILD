@@ -39,7 +39,7 @@ build() {
 		--enable-mad \
 		--enable-soxr \
 		--enable-ffmpeg \
-		--enable-sacdiso
+		--enable-sacdiso \
 		--disable-ao \
 		--disable-jack \
 		--disable-modplug \
