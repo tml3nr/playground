@@ -13,11 +13,11 @@ makedepends=('boost' 'doxygen' 'git')
 provides=("mpd=$pkgver")
 conflicts=('mpd' 'mpd-archphile')
 source=('$pkgname::http://git.musicpd.org/cgit/manisiutkin/mpd.git'
-         'tmpfiles.d'
-	       'mpd.conf')
+        'tmpfiles.d'
+	'mpd.conf')
 sha256sums=('SKIP'
-            ''
-            '')
+            'f4d5922abb69abb739542d8e93f4dfd748acdad7'
+            '0559613eb3085692707f1c63dae205b658599f4e')
 backup=('etc/mpd.conf')
 install=mpd.install
 
@@ -39,6 +39,7 @@ build() {
 		--enable-mad \
 		--enable-soxr \
 		--enable-ffmpeg \
+		--enable-sacdiso
 		--disable-ao \
 		--disable-jack \
 		--disable-modplug \
