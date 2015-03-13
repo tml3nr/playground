@@ -1,7 +1,7 @@
 #  Maintainer: Tux <info@archphile.org>
 
 pkgname=mpd-archphile-sacd
-_pkgname=mpd
+_pkgname=mpd-git
 pkgver=0.19.7.215.g7030e8f
 pkgrel=1
 pkgdesc='Flexible, powerful, server-side application for playing music. Experimental version with support of SACD ISO playback'
@@ -12,7 +12,7 @@ depends=('audiofile' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libm
 makedepends=('boost' 'doxygen' 'git')
 provides=("mpd=$pkgver")
 conflicts=('mpd' 'mpd-archphile')
-source=('$pkgname::http://git.musicpd.org/cgit/manisiutkin/mpd.git'
+source=('$_pkgname::http://git.musicpd.org/cgit/manisiutkin/mpd.git'
         'tmpfiles.d'
 	'mpd.conf')
 sha1sums=('SKIP'
