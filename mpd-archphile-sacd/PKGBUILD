@@ -12,7 +12,7 @@ depends=('audiofile' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libm
 makedepends=('boost' 'doxygen' 'git')
 provides=("mpd=$pkgver")
 conflicts=('mpd' 'mpd-archphile')
-source=('git+ http://git.musicpd.org/cgit/manisiutkin/mpd.git'
+source=('git+http://git.musicpd.org/cgit/manisiutkin/mpd.git'
         'tmpfiles.d'
 	'mpd.conf')
 sha1sums=('SKIP'
