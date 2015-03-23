@@ -2,7 +2,7 @@
 
 pkgname=mpd-archphile-sacd
 _pkgname=mpd
-pkgver=0.20.5e685af
+pkgver=r10099.598258d
 pkgrel=1
 pkgdesc='Flexible, powerful, server-side application for playing music. Experimental version with support of SACD ISO playback'
 url='http://www.musicpd.org/'
@@ -17,13 +17,13 @@ source=('git+git://git.musicpd.org/manisiutkin/mpd.git'
 	'mpd.conf')
 sha1sums=('SKIP'
             'f4d5922abb69abb739542d8e93f4dfd748acdad7'
-            'c48137bd23e7e147f312ec3b2465d1995b84ff42')
+            '648b727574c78db0a3025c8324ecfb11763b0a50')
 backup=('etc/mpd.conf')
 install=mpd.install
 
 pkgver() {
-  cd "${srcdir}/${_pkgname}"
-  git describe --long --tags | sed -E 's/^v//; s/([^-]*-g)/r\1/; s/-/./g'
+  cd $_pkgname
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
@@ -39,6 +39,7 @@ build() {
 		--enable-soxr \
 		--enable-ffmpeg \
 		--enable-sacdiso \
+		--enable-dvdaiso \
 		--disable-ao \
 		--disable-jack \
 		--disable-modplug \
@@ -80,4 +81,3 @@ package() {
         sed '/ExecStart=/c ExecStart=/usr/bin/nice -n -16 /usr/bin/mpd --no-daemon' -i "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
   find "$pkgdir" -type d -name '.git' -exec rm -r '{}' +
 }
-
