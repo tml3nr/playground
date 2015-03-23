@@ -21,6 +21,10 @@ sha1sums=('SKIP'
 backup=('etc/mpd.conf')
 install=mpd.install
 
+pkgver() {
+  cd "${srcdir}/${_pkgname}"
+  git describe --long --tags | sed -E 's/^v//; s/([^-]*-g)/r\1/; s/-/./g'
+}
 
 build() {
   cd $_pkgname
