@@ -3,7 +3,7 @@
 pkgname=mpd-archphile-sacd
 _pkgname=mpd
 pkgver=r10099.598258d
-pkgrel=2
+pkgrel=3
 pkgdesc='Flexible, powerful, server-side application for playing music. Experimental version with support of SACD ISO playback'
 url='http://www.musicpd.org/'
 license=('GPL')
@@ -17,7 +17,7 @@ source=('git+git://git.musicpd.org/manisiutkin/mpd.git'
 	'mpd.conf')
 sha1sums=('SKIP'
             'f4d5922abb69abb739542d8e93f4dfd748acdad7'
-            '9c2d083bb77c550be128cc7d6dd9d9399ad655b9')
+            '46e032a7af853a35b5711caa2e1237ce43a46ca3')
 backup=('etc/mpd.conf')
 install=mpd.install
 
