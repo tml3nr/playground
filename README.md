@@ -7,7 +7,7 @@ Packages included:
 - mpd-archphile-native-dsd (patched mpd to support native DSD for several Dacs)
 - alsaequal (taken from AUR)
 
-These packages will never be a part of Archhpile distribution. 
+These packages are not part of Archhpile distribution. 
 
 
 
