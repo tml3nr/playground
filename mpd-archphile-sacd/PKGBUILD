@@ -11,7 +11,7 @@ arch=('armv6h' 'armv7h')
 depends=('audiofile' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient' 'boost-libs' 'libsoxr' 'ffmpeg-archphile' 'avahi')
 makedepends=('boost' 'doxygen' 'git')
 provides=("mpd=$pkgver")
-conflicts=('mpd' 'mpd-archphile')
+conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd')
 source=('git+git://git.musicpd.org/manisiutkin/mpd.git'
         'tmpfiles.d'
 	'mpd.conf')
