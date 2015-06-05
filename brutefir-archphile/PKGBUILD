@@ -12,7 +12,7 @@ arch=("armv7h")
 url='http://www.ludd.luth.se/~torger/brutefir.html'
 license=('GPL')
 depends=('fftw' 'alsa-lib' 'jack')
-source=("http://www.ludd.luth.se/~torger/files/$pkgname-$pkgver.tar.gz")
+source=("http://www.ludd.luth.se/~torger/files/$_pkgname-$pkgver.tar.gz")
 sha1sums=("86d325f51e9679ffce6db17e6b288194a67369a2")
 
 build() {
