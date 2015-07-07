@@ -10,7 +10,7 @@
 
 pkgname=mpd-archphile-native-dsd
 _pkgname=mpd
-pkgver=0.19.9	
+pkgver=0.19.10	
 pkgrel=1
 pkgdesc='Flexible, powerful, server-side application for playing music. Light version optimized for Archphile distribution'
 url='http://www.musicpd.org/'
@@ -24,8 +24,8 @@ replaces=('mpd')
 source=("http://www.musicpd.org/download/${_pkgname}/${pkgver%.*}/${_pkgname}-${pkgver}.tar.xz"
         'tmpfiles.d'
 	'mpd.conf'
-	'0001-Add-native-DSD-support-to-MPD-0.19.9.patch')
-sha1sums=('6683bee5f132eda318c5a61ec14b2df8d9164d60'
+	'0001-Add-native-DSD-support-to-MPD-0.19.10.patch')
+sha1sums=('4635b33223d3f1e67eed41f6350ef75515153213'
           'f4d5922abb69abb739542d8e93f4dfd748acdad7'
           '015ec5e2234c4cf5a7a1ead86b497a8e7cc458cb'
 	  '81234f6d661b9fa335814369d33e30662e6e5399')
