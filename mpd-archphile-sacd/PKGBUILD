@@ -8,7 +8,7 @@ pkgdesc='Flexible, powerful, server-side application for playing music. Experime
 url='http://www.musicpd.org/'
 license=('GPL')
 arch=('armv6h' 'armv7h')
-depends=('audiofile' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient' 'boost-libs' 'libsoxr' 'ffmpeg-archphile' 'avahi')
+depends=('flac' 'audiofile' 'libsndfile' 'icu' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient' 'libsoxr' 'ffmpeg-archphile' 'avahi')
 makedepends=('boost' 'doxygen' 'git')
 provides=("mpd=$pkgver")
 conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd')
@@ -16,10 +16,10 @@ source=('git+git://git.musicpd.org/manisiutkin/mpd.git'
         'tmpfiles.d'
 	'mpd.conf')
 sha1sums=('SKIP'
-            'f4d5922abb69abb739542d8e93f4dfd748acdad7'
-            '46e032a7af853a35b5711caa2e1237ce43a46ca3')
+          'f4d5922abb69abb739542d8e93f4dfd748acdad7'
+          '46e032a7af853a35b5711caa2e1237ce43a46ca3')
 backup=('etc/mpd.conf')
-install=mpd.install
+install=install
 
 pkgver() {
   cd $_pkgname
@@ -38,6 +38,8 @@ build() {
 		--enable-mad \
 		--enable-soxr \
 		--enable-ffmpeg \
+                --enable-audiofile \
+		--enable-sndfile \
 		--enable-sacdiso \
 		--enable-dvdaiso \
 		--disable-ao \
@@ -49,7 +51,6 @@ build() {
 		--disable-soundcloud \
 		--disable-wavpack \
 		--disable-opus \
-		--disable-lame-encoder \
 		--disable-vorbis \
 		--disable-ipv6 \
 		--disable-recorder-output \
@@ -60,6 +61,20 @@ build() {
 		--disable-fluidsynth \
 		--disable-gme \
 		--disable-bzip2 \
+		--disable-lame-encoder \
+	        --disable-shine-encoder \
+                --disable-twolame-encoder \
+                --disable-vorbis-encoder \
+                --disable-wave-encoder \
+                --disable-nfs \
+                --disable-smbclient \
+                --disable-httpd-output \
+                --disable-oss \
+        	--disable-mikmod \
+		--disable-modplug \
+        	--disable-mpg123 \
+	        --disable-wildmidi \
+                --disable-lsr \
 		--with-zeroconf=avahi \
 		--with-systemdsystemunitdir=/usr/lib/systemd/system
 
