@@ -1,5 +1,5 @@
 #!/bin/bash
-systemctl stop squeeze
+systemctl stop squeezelite
 systemctl stop logitechmediaserver
 systemctl start mpd
 systemctl start ympd
