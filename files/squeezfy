@@ -1,5 +1,9 @@
 #!/bin/bash
 systemctl stop mpd
+systemctl disable mpd
 systemctl stop ympd
+systemctl disable ympd
 systemctl start logitechmediaserver
+systemctl enable logitechmediaserver
 systemctl start squeezelite
+systemctl enable squeezelite
