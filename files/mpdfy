@@ -1,5 +1,10 @@
 #!/bin/bash
 systemctl stop squeezelite
+systemctl disable squeezelite
 systemctl stop logitechmediaserver
+systemctl disable logitechmediaserver
 systemctl start mpd
+systemctl enable mbd
 systemctl start ympd
+systemctl enable ympd
+systemctl daemon-reload
