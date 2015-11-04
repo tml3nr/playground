@@ -7,3 +7,4 @@ systemctl start logitechmediaserver
 systemctl enable logitechmediaserver
 systemctl start squeezelite
 systemctl enable squeezelite
+systemctl daemon-reload
