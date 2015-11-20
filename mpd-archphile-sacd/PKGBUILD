@@ -42,6 +42,7 @@ build() {
 		--enable-sndfile \
 		--enable-sacdiso \
 		--enable-dvdaiso \
+		--enable-pipe-output \
 		--disable-ao \
 		--disable-jack \
 		--disable-modplug \
