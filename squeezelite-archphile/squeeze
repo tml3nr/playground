@@ -1,4 +1,4 @@
-server=<server ip>
+server=localhost
 name=Archphile
 logtype=all
 loglevel=info
