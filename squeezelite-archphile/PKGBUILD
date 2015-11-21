@@ -26,7 +26,7 @@ source=('git+https://code.google.com/p/squeezelite/'
         'squeeze')
 sha1sums=('SKIP'
           'c00a04548d47c5f6ce5665521a55cacb726f34a4'
-          '3743255f445b103e13822281df79971d87cf4ea8')
+          'ab8cee120f38eca6573ba30e43d759d37f89e13a')
 
 pkgver() {
         cd squeezelite/
