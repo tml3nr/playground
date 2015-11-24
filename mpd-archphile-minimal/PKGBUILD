@@ -39,6 +39,7 @@ build() {
 	--enable-curl \
 	--enable-mms \
 	--enable-id3 \
+	--enable-tcp \
 	--disable-ao \
         --disable-httpd-output \
         --disable-jack \
@@ -67,7 +68,6 @@ build() {
         --disable-nfs \
         --disable-smbclient \
         --disable-soundcloud \
-        --disable-tcp \
         --disable-upnp \
         --disable-bzip2 \
         --disable-iso9660 \
