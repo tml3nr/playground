@@ -41,7 +41,7 @@ build() {
 	--enable-id3 \
 	--enable-tcp \
 	--enable-largefile \
-	--enable-libwrap \
+	--disable-libwrap \
 	--disable-ao \
         --disable-httpd-output \
         --disable-jack \
