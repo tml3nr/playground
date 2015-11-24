@@ -34,7 +34,6 @@ build() {
 	--enable-libmpdclient \
 	--enable-mad \
 	--enable-aac \
-	--enable-mpc \
 	--enable-vorbis \
 	--enable-curl \
 	--enable-mms \
