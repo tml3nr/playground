@@ -40,6 +40,8 @@ build() {
 	--enable-mms \
 	--enable-id3 \
 	--enable-tcp \
+	--enable-largefile \
+	--enable-libwrap \
 	--disable-ao \
         --disable-httpd-output \
         --disable-jack \
@@ -64,7 +66,6 @@ build() {
         --disable-wildmidi \
         --disable-expat \
         --disable-ipv6 \
-        --disable-libwrap \
         --disable-nfs \
         --disable-smbclient \
         --disable-soundcloud \
@@ -74,7 +75,6 @@ build() {
         --disable-zlib \
         --disable-zzip \
         --disable-cdio-paranoia \
-        --disable-largefile \
         --disable-lsr \
         --disable-soxr \
         --disable-lame-encoder \
