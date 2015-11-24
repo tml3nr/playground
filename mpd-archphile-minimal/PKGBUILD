@@ -82,7 +82,7 @@ build() {
         --disable-vorbis-encoder \
         --disable-wave-encoder \
         --disable-neighbor-plugins \
-        --with-zeroconf=no
+        --with-zeroconf=no \
         --with-systemdsystemunitdir=/usr/lib/systemd/system
 
 	make
