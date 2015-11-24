@@ -32,6 +32,7 @@ build() {
 	--prefix=/usr \
 	--sysconfdir=/etc \
 	--enable-libmpdclient \
+	--enable-alsa \
 	--enable-mad \
 	--enable-aac \
 	--enable-vorbis \
