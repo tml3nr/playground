@@ -14,10 +14,10 @@ provides=("mpd=$pkgver")
 conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd')
 source=('git+git://git.musicpd.org/manisiutkin/mpd.git'
         'tmpfiles.d'
-	'mpd.conf')
+	    'mpd.conf')
 sha1sums=('SKIP'
           'f4d5922abb69abb739542d8e93f4dfd748acdad7'
-          'ec4adda56ab9341650e51b03e107de0734750b4f')
+          'a464fd064b2df6df3816d19dc454b1df743d37ce')
 backup=('etc/mpd.conf')
 install=install
 
@@ -38,7 +38,7 @@ build() {
 		--enable-mad \
 		--enable-soxr \
 		--enable-ffmpeg \
-                --enable-audiofile \
+        --enable-audiofile \
 		--enable-sndfile \
 		--enable-sacdiso \
 		--enable-dvdaiso \
@@ -63,19 +63,19 @@ build() {
 		--disable-gme \
 		--disable-bzip2 \
 		--disable-lame-encoder \
-	        --disable-shine-encoder \
-                --disable-twolame-encoder \
-                --disable-vorbis-encoder \
-                --disable-wave-encoder \
-                --disable-nfs \
-                --disable-smbclient \
-                --disable-httpd-output \
-                --disable-oss \
-        	--disable-mikmod \
+	    --disable-shine-encoder \
+        --disable-twolame-encoder \
+        --disable-vorbis-encoder \
+        --disable-wave-encoder \
+        --disable-nfs \
+        --disable-smbclient \
+        --disable-httpd-output \
+        --disable-oss \
+        --disable-mikmod \
 		--disable-modplug \
-        	--disable-mpg123 \
-	        --disable-wildmidi \
-                --disable-lsr \
+        --disable-mpg123 \
+	    --disable-wildmidi \
+        --disable-lsr \
 		--with-zeroconf=avahi \
 		--with-systemdsystemunitdir=/usr/lib/systemd/system
 
@@ -94,6 +94,6 @@ package() {
 	install -Dm644 "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
 	sed '/\[Service\]/a User=mpd' -i "${pkgdir}"/usr/lib/systemd/system/mpd.service
 	sed '/WantedBy=/c WantedBy=default.target' -i "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
-        sed '/ExecStart=/c ExecStart=/usr/bin/nice -n -16 /usr/bin/mpd --no-daemon' -i "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
-  find "$pkgdir" -type d -name '.git' -exec rm -r '{}' +
+    sed '/ExecStart=/c ExecStart=/usr/bin/nice -n -16 /usr/bin/mpd --no-daemon' -i "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
+    find "$pkgdir" -type d -name '.git' -exec rm -r '{}' +
 }

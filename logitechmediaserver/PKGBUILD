@@ -1,3 +1,5 @@
+# Maintainer: Tux <info@archphile.org>
+# Based on a package made by the following people:
 # Maintainer: Stefan Sielaff <aur AT stefan-sielaff DOT de>
 
 pkgname=logitechmediaserver
