@@ -17,10 +17,10 @@ conflicts=('mpd' 'mpd-archphile-sacd' 'mpd-archphile-native-dsd')
 replaces=('mpd')
 source=("http://www.musicpd.org/download/${_pkgname}/${pkgver%.*}/${_pkgname}-${pkgver}.tar.xz"
         'tmpfiles.d'
-	    'mpd.conf')
+	'mpd.conf')
 sha1sums=('bc39026742b43d851a846b1f09bff94895cd1927'
           'f4d5922abb69abb739542d8e93f4dfd748acdad7'
-          '0c7fdf13a7d2b5b7157698741fe8ea91d3bc8654')
+          '0247FF8D91668A9F85A60777F56A3F872555F424')
 backup=('etc/mpd.conf')
 install=install
 
