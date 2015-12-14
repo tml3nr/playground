@@ -30,6 +30,7 @@ build() {
 	./configure \
 	--prefix=/usr \
 	--sysconfdir=/etc \
+	--enable-pipe \
 	--enable-libmpdclient \
 	--enable-alsa \
 	--enable-mad \
