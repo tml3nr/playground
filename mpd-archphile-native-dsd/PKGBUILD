@@ -23,12 +23,12 @@ conflicts=('mpd' 'mpd-archphile-ffmpeg' 'mpd-archphile-sacd' 'mpd-archphile-mini
 replaces=('mpd')
 source=("http://www.musicpd.org/download/${_pkgname}/${pkgver%.*}/${_pkgname}-${pkgver}.tar.xz"
         'tmpfiles.d'
-		'mpd.conf'
-	    'https://raw.githubusercontent.com/lintweaker/mpd-dsd-019/master/0001-Add-native-DSD-support-to-MPD-0.19.11.patch')
+	'mpd.conf'
+	'https://raw.githubusercontent.com/lintweaker/mpd-dsd-019/master/0001-Add-native-DSD-support-to-MPD-0.19.11.patch')
 sha1sums=('bc39026742b43d851a846b1f09bff94895cd1927'
           'f4d5922abb69abb739542d8e93f4dfd748acdad7'
-          'e7168daf147c714c4eb2ac9f72443829e6b93234'
-          'b5a2b894d61e09615b6c6304dc1961c7fa781a27')
+          '0e19b4de79ece0ae61b6d6da4330b2a66c617eaa
+          '8421fee587445e6bf7e6ca5bdc660ee83a57e648')
 backup=('etc/mpd.conf')
 install=install
 
