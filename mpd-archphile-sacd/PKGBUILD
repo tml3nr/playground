@@ -17,7 +17,7 @@ source=('git+git://git.musicpd.org/manisiutkin/mpd.git'
 	    'mpd.conf')
 sha1sums=('SKIP'
           'f4d5922abb69abb739542d8e93f4dfd748acdad7'
-          'a464fd064b2df6df3816d19dc454b1df743d37ce')
+          '1f3104f5a3c3dc8153e1a55453c9b08d4ec04b40')
 backup=('etc/mpd.conf')
 install=install
 
