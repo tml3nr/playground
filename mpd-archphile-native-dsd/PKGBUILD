@@ -34,7 +34,7 @@ install=install
 
 build() {
 	cd "${srcdir}/${_pkgname}-${pkgver}"
-	patch -Np1 -i "../../0001-Add-native-DSD-support-to-MPD-0.19.11.patch" 
+	patch -Np1 -i "../../0001-Add-native-DSD-support-to-MPD-0.19.12.patch" 
 	./configure \
 		--prefix=/usr \
 		--sysconfdir=/etc \
