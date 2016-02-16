@@ -10,7 +10,7 @@ pkgdesc="BruteFIR is a software convolution engine, a program for applying long 
 arch=('armv6h' 'armv7h' 'jack')
 url="http://www.ludd.luth.se/~torger/brutefir.html"
 license=('GPL')
-depends=('fftw' 'alsa-lib')
+depends=('jack' 'fftw' 'alsa-lib')
 source=(http://www.ludd.luth.se/~torger/files/$pkgname-$pkgver.tar.gz)
 sha1sums=('86d325f51e9679ffce6db17e6b288194a67369a2')
 
