@@ -14,10 +14,10 @@ provides=("mpd=$pkgver")
 conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd')
 source=('git+git://git.musicpd.org/manisiutkin/mpd.git'
         'tmpfiles.d'
-	    'mpd.conf')
+	 'mpd.conf')
 sha1sums=('SKIP'
           'f4d5922abb69abb739542d8e93f4dfd748acdad7'
-          '1f3104f5a3c3dc8153e1a55453c9b08d4ec04b40')
+          'ee0536aedacc04d8eacb2a8707c733f90239fff1')
 backup=('etc/mpd.conf')
 install=install
 
