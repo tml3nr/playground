@@ -12,7 +12,7 @@
 pkgname=mpd-archphile-native-dsd
 _pkgname=mpd
 pkgver=0.19.12	
-pkgrel=1
+pkgrel=2
 pkgdesc='Flexible, powerful, server-side application for playing music. Archphile version with native dsd support.'
 url='http://www.musicpd.org/'
 license=('GPL')
