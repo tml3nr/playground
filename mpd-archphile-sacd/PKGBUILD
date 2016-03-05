@@ -8,7 +8,7 @@ pkgrel=4
 pkgdesc='Flexible, powerful, server-side application for playing music. Experimental version with support of SACD ISO playback'
 url='http://www.musicpd.org/'
 license=('GPL')
-arch=('arm' 'armv6h' 'armv7h')
+arch=('arm' 'armv6h' 'armv7h' 'aarch64')
 depends=('flac' 'audiofile' 'libsndfile' 'icu' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient' 'libsoxr' 'ffmpeg-archphile' 'avahi' 'libupnp-archphile')
 makedepends=('boost' 'doxygen' 'git')
 provides=("mpd=$pkgver")
