@@ -1,5 +1,5 @@
 Packages of Playground repository 
 ========
 
-Additional packages for Archphile Distribution. Most of these packages are for testing purposes or not officialy supported.
+This repository contains all the PKGBUILDS used for additional packages of Archphile Distribution. Most of these packages are for testing purposes or not officialy supported.
 
