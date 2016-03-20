@@ -26,7 +26,7 @@ source=("http://www.musicpd.org/download/${_pkgname}/${pkgver%.*}/${_pkgname}-${
         'tmpfiles.d'
 	'mpd.conf'
 	'https://raw.githubusercontent.com/lintweaker/mpd-dsd-019/master/0001-Add-native-DSD-support-to-MPD-0.19.14.patch')
-sha1sums=('1bbd8a9d80018d47867b205ea00e76bef9bbc351'
+sha1sums=('2faf8664ae5c9183e73185c9dcfe0be50579f5e8'
           'f4d5922abb69abb739542d8e93f4dfd748acdad7'
           '0e19b4de79ece0ae61b6d6da4330b2a66c617eaa'
           '6f82cc5da24de964eebfbf52cd5367e863f747ec')
