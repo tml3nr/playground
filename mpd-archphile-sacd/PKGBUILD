@@ -27,6 +27,12 @@ pkgver() {
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
+prepare() {
+	# Temporary; see FS#48372
+	install -d "${srcdir}"/pkg-config
+	ln -s /usr/lib/pkgconfig/libsystemd.pc "${srcdir}"/pkg-config/libsystemd-daemon.pc
+}
+
 build() {
   cd $_pkgname
 
