@@ -80,6 +80,9 @@ build() {
 		--with-zeroconf=avahi \
 		--with-systemdsystemunitdir=/usr/lib/systemd/system
 
+# Quick fix for missing glib-2.0 include.
+	sed -i 's/DSD_CFLAGS = \\/DSD_CFLAGS = $(MMS_CFLAGS) \\/' "${srcdir}"/mpd/Makefile
+
   make
 }
 
