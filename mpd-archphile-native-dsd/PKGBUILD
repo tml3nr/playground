@@ -33,6 +33,12 @@ sha1sums=('88d98884a262af3be74e2791ae9e5eb898f6dfbb'
 backup=('etc/mpd.conf')
 install=install
 
+prepare() {
+	# Temporary; see FS#48372
+	install -d "${srcdir}"/pkg-config
+	ln -s /usr/lib/pkgconfig/libsystemd.pc "${srcdir}"/pkg-config/libsystemd-daemon.pc
+}
+
 build() {
 	cd "${srcdir}/${_pkgname}-${pkgver}"
 	patch -Np1 -i "../../0001-This-patch-extends-native-DSD-support-for-MPD-0.19.1.patch" 
