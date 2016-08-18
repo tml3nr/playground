@@ -11,7 +11,7 @@
 
 pkgname=mpd-archphile-native-dsd
 _pkgname=mpd
-pkgver=0.19.14	
+pkgver=0.19.17	
 pkgrel=1
 pkgdesc='Flexible, powerful, server-side application for playing music. Archphile version with native dsd support.'
 url='http://www.musicpd.org/'
@@ -25,17 +25,17 @@ replaces=('mpd')
 source=("http://www.musicpd.org/download/${_pkgname}/${pkgver%.*}/${_pkgname}-${pkgver}.tar.xz"
         'tmpfiles.d'
 	'mpd.conf'
-	'https://raw.githubusercontent.com/lintweaker/mpd-dsd-019/master/0001-Add-native-DSD-support-to-MPD-0.19.14.patch')
-sha1sums=('2faf8664ae5c9183e73185c9dcfe0be50579f5e8'
+	'https://raw.githubusercontent.com/lintweaker/mpd-dsd-019/master/0001-This-patch-extends-native-DSD-support-for-MPD-0.19.1.patch')
+sha1sums=('88d98884a262af3be74e2791ae9e5eb898f6dfbb'
           'f4d5922abb69abb739542d8e93f4dfd748acdad7'
           '0e19b4de79ece0ae61b6d6da4330b2a66c617eaa'
-          '6f82cc5da24de964eebfbf52cd5367e863f747ec')
+          'fcfbf43ab1c6405d21e4656153f6d8be7b1d2159')
 backup=('etc/mpd.conf')
 install=install
 
 build() {
 	cd "${srcdir}/${_pkgname}-${pkgver}"
-	patch -Np1 -i "../../0001-Add-native-DSD-support-to-MPD-0.19.14.patch" 
+	patch -Np1 -i "../../0001-This-patch-extends-native-DSD-support-for-MPD-0.19.1.patch" 
 	./configure \
 		--prefix=/usr \
 		--sysconfdir=/etc \
