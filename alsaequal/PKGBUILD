@@ -12,7 +12,7 @@
 pkgroot=alsaequal
 pkgname=alsaequal
 pkgver=0.6
-pkgrel=13
+pkgrel=14
 pkgdesc='Real-time adjustable equalizer plugin for ALSA sound server'
 url='http://www.thedigitalmachine.net/alsaequal.html'
 license=('GPL2')
