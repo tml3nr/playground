@@ -11,7 +11,7 @@
 
 pkgname=mpd-archphile-native-dsd
 _pkgname=mpd
-pkgver=0.19.17	
+pkgver=0.19.19	
 pkgrel=1
 pkgdesc='Flexible, powerful, server-side application for playing music. Archphile version with native dsd support.'
 url='http://www.musicpd.org/'
@@ -25,11 +25,11 @@ replaces=('mpd')
 source=("http://www.musicpd.org/download/${_pkgname}/${pkgver%.*}/${_pkgname}-${pkgver}.tar.xz"
         'tmpfiles.d'
 	'mpd.conf'
-	'https://raw.githubusercontent.com/lintweaker/mpd-dsd-019/master/0001-This-patch-extends-native-DSD-support-for-MPD-0.19.1.patch')
-sha1sums=('88d98884a262af3be74e2791ae9e5eb898f6dfbb'
+	'https://raw.githubusercontent.com/lintweaker/mpd-dsd-019/master/0001-This-patch-extends-native-DSD-support-for-MPD-0.19.19.patch')
+sha1sums=('8c281b823825cab6677cb142b564acbf09a2874d'
           'f4d5922abb69abb739542d8e93f4dfd748acdad7'
           '0e19b4de79ece0ae61b6d6da4330b2a66c617eaa'
-          'fcfbf43ab1c6405d21e4656153f6d8be7b1d2159')
+          'e264bfcfa970f62baee2549c38828b45dc909732')
 backup=('etc/mpd.conf')
 install=install
 
