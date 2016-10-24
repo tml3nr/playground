@@ -8,17 +8,17 @@ pkgrel=4
 pkgdesc='Flexible, powerful, server-side application for playing music. Experimental version with support of SACD ISO playback'
 url='http://www.musicpd.org/'
 license=('GPL')
-arch=('arm' 'armv6h' 'armv7h' 'aarch64')
+arch=('armv7h' 'aarch64')
 depends=('flac' 'audiofile' 'libsndfile' 'icu' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient' 'libsoxr' 'ffmpeg-archphile' 'avahi' 'libupnp-archphile')
 makedepends=('boost' 'doxygen' 'git')
 provides=("mpd=$pkgver")
-conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd')
+conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd' 'mpd-archphile-minimal')
 source=('git+git://git.musicpd.org/manisiutkin/mpd.git'
         'tmpfiles.d'
 	 'mpd.conf')
 sha1sums=('SKIP'
           'f4d5922abb69abb739542d8e93f4dfd748acdad7'
-          'ee0536aedacc04d8eacb2a8707c733f90239fff1')
+          'cdfadbe01caa3005dd5823e4d142c5a244a0e427')
 backup=('etc/mpd.conf')
 install=install
 

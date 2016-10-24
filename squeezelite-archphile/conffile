@@ -1,0 +1,5 @@
+# default squeezelite configuration
+SERVER_IP="localhost"
+NAME="Archphile"
+LOG_FILE="-f /var/log/squeezelite.log"
+

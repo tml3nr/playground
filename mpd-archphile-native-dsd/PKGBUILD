@@ -16,11 +16,11 @@ pkgrel=1
 pkgdesc='Flexible, powerful, server-side application for playing music. Archphile version with native dsd support.'
 url='http://www.musicpd.org/'
 license=('GPL')
-arch=('arm' 'armv6h' 'armv7h' 'aarch64')
+arch=('armv7h' 'aarch64')
 depends=('flac' 'audiofile' 'libsndfile' 'icu' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient' 'libsoxr' 'ffmpeg-archphile' 'avahi')
 makedepends=('boost' 'doxygen')
 provides=("mpd=$pkgver")
-conflicts=('mpd' 'mpd-archphile-ffmpeg' 'mpd-archphile-sacd' 'mpd-archphile-minimal')
+conflicts=('mpd' 'mpd-archphile-sacd' 'mpd-archphile-minimal')
 replaces=('mpd')
 source=("http://www.musicpd.org/download/${_pkgname}/${pkgver%.*}/${_pkgname}-${pkgver}.tar.xz"
         'tmpfiles.d'
@@ -29,7 +29,7 @@ source=("http://www.musicpd.org/download/${_pkgname}/${pkgver%.*}/${_pkgname}-${
 sha1sums=('8c281b823825cab6677cb142b564acbf09a2874d'
           'f4d5922abb69abb739542d8e93f4dfd748acdad7'
           '0e19b4de79ece0ae61b6d6da4330b2a66c617eaa'
-          'e264bfcfa970f62baee2549c38828b45dc909732')
+          'b4939d0f2c2c7da89e1be6faed496e788c9603e6')
 backup=('etc/mpd.conf')
 install=install
 
