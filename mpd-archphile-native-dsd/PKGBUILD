@@ -28,8 +28,8 @@ source=("http://www.musicpd.org/download/${_pkgname}/${pkgver%.*}/${_pkgname}-${
 	'https://raw.githubusercontent.com/lintweaker/mpd-dsd-019/master/0001-This-patch-extends-native-DSD-support-for-MPD-0.19.19.patch')
 sha1sums=('8c281b823825cab6677cb142b564acbf09a2874d'
           'f4d5922abb69abb739542d8e93f4dfd748acdad7'
-          '0e19b4de79ece0ae61b6d6da4330b2a66c617eaa'
-          'b4939d0f2c2c7da89e1be6faed496e788c9603e6')
+          'b4939d0f2c2c7da89e1be6faed496e788c9603e6'
+          'e264bfcfa970f62baee2549c38828b45dc909732')
 backup=('etc/mpd.conf')
 install=install
 
@@ -41,7 +41,7 @@ prepare() {
 
 build() {
 	cd "${srcdir}/${_pkgname}-${pkgver}"
-	patch -Np1 -i "../../0001-This-patch-extends-native-DSD-support-for-MPD-0.19.1.patch" 
+	patch -Np1 -i "../../0001-This-patch-extends-native-DSD-support-for-MPD-0.19.19.patch" 
 	./configure \
 		--prefix=/usr \
 		--sysconfdir=/etc \
