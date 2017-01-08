@@ -13,7 +13,7 @@ url="http://www.ludd.luth.se/~torger/brutefir.html"
 license=('GPL')
 depends=('jack' 'fftw' 'alsa-lib')
 source=(http://www.ludd.luth.se/~torger/files/$pkgname-$pkgver.tar.gz)
-sha1sums=('526eeb110f17515b28853fecbea7c7de2578d253')
+sha1sums=('fc794b0d7261e16e869fc80c46482528c205cb1a')
 
 build() {
 
