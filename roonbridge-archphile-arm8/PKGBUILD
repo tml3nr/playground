@@ -15,15 +15,16 @@ source=("http://download.roonlabs.com/builds/RoonBridge_linuxarmv8.tar.bz2"
 	'roonbridge.service' 
 	'copyright')
 sha1sums=('SKIP' 
-	  'c9325ef5fb8d134d1e9384e7594cc25d67130553' 
-	  '22fbfdd746d4277317d0d93a5e82bf961e7e849a')
+	  '22fbfdd746d4277317d0d93a5e82bf961e7e849a' 
+	  'c9325ef5fb8d134d1e9384e7594cc25d67130553')
 
 package() {
    cd "$srcdir"
    mkdir -p ${pkgdir}/opt/
-   bsdtar xf RoonBridge_linuxarmv7hf.tar.bz22 -C "$pkgdir/opt"
+   bsdtar xf RoonBridge_linuxarmv8.tar.bz2 -C "$pkgdir/opt"
    install -Dm644 "roonbridge.service" \
     "$pkgdir/usr/lib/systemd/system/roonbridge.service"
    install -Dm644 "copyright" \
     "$pkgdir/usr/share/licenses/$pkgname/COPYING"
 }
+
