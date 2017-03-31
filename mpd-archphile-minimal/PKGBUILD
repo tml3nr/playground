@@ -11,7 +11,7 @@ pkgdesc='Flexible, powerful, server-side application for playing music. Minimal 
 url='http://www.musicpd.org/'
 license=('GPL')
 arch=('armv7h' 'aarch64')
-depends=('alsa-lib' 'libsndfile' 'flac' 'icu' 'libvorbis' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient')
+depends=('alsa-lib' 'libsndfile' 'flac' 'libsoxr' 'icu' 'libvorbis' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient')
 makedepends=('boost' 'doxygen')
 provides=("mpd=$pkgver")
 conflicts=('mpd' 'mpd-archphile-sacd' 'mpd-archphile-native-dsd')
@@ -49,6 +49,7 @@ build() {
 	--enable-tcp \
 	--enable-largefile \
 	--enable-sndfile \
+	--enable-soxr \
 	--disable-libwrap \
 	--disable-ao \
     	--disable-httpd-output \
@@ -83,7 +84,6 @@ build() {
     	--disable-zzip \
     	--disable-cdio-paranoia \
     	--disable-lsr \
-    	--disable-soxr \
     	--disable-lame-encoder \
     	--disable-shine-encoder \
     	--disable-twolame-encoder \
