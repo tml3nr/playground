@@ -5,19 +5,12 @@ After=network.target
 [Service]
 EnvironmentFile=/etc/librespot.conf
 ExecStart=/usr/bin/librespot \
-  --cache /tmp \
-  --name Archphile \
+  --cache ${LIBRESPOT_CACHE} \
+  --name %H \
   --bitrate ${LIBRESPOT_BITRATE} \
   --username ${LIBRESPOT_USERNAME} \
   --password ${LIBRESPOT_PASSWORD} 
-#  --device=plughw:1
-#
-## If your device does not support 16 bit (you can check with alsacap command)
-## You will need to enable the "--device=" option and in addition to add a "\"
-## to password section above so that it looks like the one below:
-## --password ${LIBRESPOT_PASSWORD}\
-##
-
+#  --device=plughw:0
 
 Restart=always
 User=librespot
@@ -25,3 +18,4 @@ Group=audio
 
 [Install]
 WantedBy=multi-user.target
+
