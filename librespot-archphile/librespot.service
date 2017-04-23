@@ -10,13 +10,14 @@ ExecStart=/usr/bin/librespot \
   --bitrate ${LIBRESPOT_BITRATE} \
   --username ${LIBRESPOT_USERNAME} \
   --password ${LIBRESPOT_PASSWORD} 
+#  --device=plughw:1
 #
 ## If your device does not support 16 bit (you can check with alsacap command)
 ## You will need to enable the "--device=" option and in addition to add a "\"
 ## to password section above so that it looks like the one below:
 ## --password ${LIBRESPOT_PASSWORD}\
 ##
-#  --device=plughw:1
+
 
 Restart=always
 User=librespot
