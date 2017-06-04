@@ -17,7 +17,7 @@ source=('git://github.com/plietar/librespot.git'
 'librespot.sysusers'
 'librespot.tmpfiles')
 sha256sums=('SKIP'
-            'a167c4223bb1b9fa9b8172adcb3ab0f7ab18f88222883f498403c32adad332b6'
+            '23b41fb8651a780a438cc4ebc0a0e401d91b9ef394c78df766dea54debd5c774'
             'a2091a0bd5941b178af496e471e96e857349d683bcbda735f2eb5cb7c1cecb03'
             'cd05d40dcc1572aba86aed732b5e0e47ff644d6c40380cc2d2b4d80acc2c2b1f'
             '61b68cf5776374218caf525d707a52bf14d349e4f1a7c8ef76b8ed5789f19114')
