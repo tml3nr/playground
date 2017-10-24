@@ -21,7 +21,7 @@ sha1sums=('SKIP'
 package() {
    cd "$srcdir"
    mkdir -p ${pkgdir}/opt/
-   bsdtar xf RoonBridge_linuxarmv7hf.tar.bz22 -C "$pkgdir/opt"
+   bsdtar xf RoonBridge_linuxarmv7hf.tar.bz2 -C "$pkgdir/opt"
    install -Dm644 "roonbridge.service" \
     "$pkgdir/usr/lib/systemd/system/roonbridge.service"
    install -Dm644 "copyright" \
