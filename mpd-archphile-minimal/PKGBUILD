@@ -46,47 +46,47 @@ build() {
 	--enable-soxr \
 	--disable-libwrap \
 	--disable-ao \
-    	--disable-httpd-output \
-    	--disable-jack \
-    	--disable-openal \
-    	--disable-oss \
-    	--disable-pulse \
-    	--disable-recorder-output \
-    	--disable-roar \
-    	--disable-shout \
-    	--disable-adplug \
-    	--disable-audiofile \
-    	--disable-ffmpeg \
-    	--disable-fluidsynth \
-    	--disable-gme \
-    	--disable-mikmod \
-    	--disable-modplug \
-    	--disable-mpg123 \
+    --disable-httpd-output \
+    --disable-jack \
+    --disable-openal \
+    --disable-oss \
+    --disable-pulse \
+    --disable-recorder-output \
+    --disable-roar \
+    --disable-shout \
+    --disable-adplug \
+    --disable-audiofile \
+    --disable-ffmpeg \
+    --disable-fluidsynth \
+    --disable-gme \
+    --disable-mikmod \
+    --disable-modplug \
+    --disable-mpg123 \
    	--disable-opus \
-    	--disable-sidplay \
-    	--disable-wavpack \
-    	--disable-wildmidi \
-    	--disable-expat \
-    	--disable-ipv6 \
-    	--disable-nfs \
-    	--disable-smbclient \
-    	--disable-soundcloud \
+    --disable-sidplay \
+    --disable-wavpack \
+    --disable-wildmidi \
+    --disable-expat \
+    --disable-ipv6 \
+    --disable-nfs \
+    --disable-smbclient \
+    --disable-soundcloud \
    	--disable-upnp \
-    	--disable-bzip2 \
-    	--disable-iso9660 \
-    	--disable-zlib \
-    	--disable-zzip \
-    	--disable-cdio-paranoia \
-    	--disable-lsr \
-    	--disable-lame-encoder \
-    	--disable-shine-encoder \
-    	--disable-twolame-encoder \
-    	--disable-vorbis-encoder \
-    	--disable-wave-encoder \
-    	--disable-neighbor-plugins \
-    	--with-zeroconf=no \
+    --disable-bzip2 \
+    --disable-iso9660 \
+    --disable-zlib \
+    --disable-zzip \
+    --disable-cdio-paranoia \
+    --disable-lsr \
+    --disable-lame-encoder \
+    --disable-shine-encoder \
+    --disable-twolame-encoder \
+    --disable-vorbis-encoder \
+    --disable-wave-encoder \
+    --disable-neighbor-plugins \
+    --with-zeroconf=no \
 	--with-systemduserunitdir=/usr/lib/systemd/user \
-    	--with-systemdsystemunitdir=/usr/lib/systemd/system
+    --with-systemdsystemunitdir=/usr/lib/systemd/system
 
 	make
 }
@@ -101,6 +101,6 @@ package() {
 
 	install -Dm644 "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
 	sed '/WantedBy=/c WantedBy=default.target' -i "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
-    	sed '/ExecStart=/c ExecStart=/usr/bin/nice -n -16 /usr/bin/mpd --no-daemon' -i "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
+    sed '/ExecStart=/c ExecStart=/usr/bin/nice -n -16 /usr/bin/mpd --no-daemon' -i "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
 
 }
