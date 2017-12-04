@@ -3,8 +3,8 @@
 
 pkgname=mpd-archphile-sacd
 _pkgname=mpd
-pkgver=0.20
-pkgrel=4
+pkgver=r12401.affd5abe0-1
+pkgrel=1
 pkgdesc='Flexible, powerful, server-side application for playing music. Experimental version with support of SACD ISO playback'
 url='http://www.musicpd.org/'
 license=('GPL')
@@ -25,12 +25,6 @@ install=install
 pkgver() {
   cd $_pkgname
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-}
-
-prepare() {
-	# Temporary; see FS#48372
-	install -d "${srcdir}"/pkg-config
-	ln -s /usr/lib/pkgconfig/libsystemd.pc "${srcdir}"/pkg-config/libsystemd-daemon.pc
 }
 
 build() {
@@ -84,13 +78,9 @@ build() {
 	    	--disable-wildmidi \
         	--disable-lsr \
 		--with-zeroconf=avahi \
+		--with-systemduserunitdir=/usr/lib/systemd/user \
 		--with-systemdsystemunitdir=/usr/lib/systemd/system
 
-# Quick fix for missing glib-2.0 include.
-	sed -i 's/DSD_CFLAGS = \\/DSD_CFLAGS = $(MMS_CFLAGS) \\/' "${srcdir}"/mpd/Makefile
-
-  make
-}
 
 package() {
 	cd "${srcdir}/${_pkgname}"

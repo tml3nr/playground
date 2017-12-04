@@ -85,6 +85,7 @@ build() {
     	--disable-wave-encoder \
     	--disable-neighbor-plugins \
     	--with-zeroconf=no \
+	--with-systemduserunitdir=/usr/lib/systemd/user \
     	--with-systemdsystemunitdir=/usr/lib/systemd/system
 
 	make
