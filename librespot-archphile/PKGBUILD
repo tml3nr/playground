@@ -6,7 +6,7 @@
 
 _pkgname=librespot
 pkgname=librespot-archphile
-pkgver=r258.9e495d6
+pkgver=r363.8971d3a
 pkgrel=1
 pkgdesc='An open source client library for Spotify (ALSA Backend).'
 url='https://github.com/plietar/librespot.git'
