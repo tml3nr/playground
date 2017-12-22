@@ -23,7 +23,7 @@ sha256sums=('SKIP'
             '61b68cf5776374218caf525d707a52bf14d349e4f1a7c8ef76b8ed5789f19114')
 arch=('armv7h' 'aarch64')
 depends=('alsa-lib' 'portaudio')
-makedepends=('git' 'rust' 'protobuf' 'cargo')
+makedepends=('git' 'rust')
 install=librespot.install
 backup=('etc/librespot.conf')
 conflicts=('librespot' 'librespot-git' 'librespot-alsa-git')
