@@ -15,12 +15,13 @@ provides=("mpd=$pkgver")
 conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd' 'mpd-archphile-minimal')
 source=('git+git://git.musicpd.org/manisiutkin/mpd.git'
         'tmpfiles.d'
-	 'mpd.conf')
+	'sysusers.d'
+	'mpd.conf')
 sha1sums=('SKIP'
-          'f4d5922abb69abb739542d8e93f4dfd748acdad7'
+          '4e20576ea53141fc398f8e586f30bdf06a404ca099db037724ef80f15c7f2ea3'
+          '0b74c6e5db08daab3091dc15a6b0c75210ba2f9e98fa074f6cfd605a461056b6'
           '82ff658416b45463709aa9bb28ad40c9297dbaa9')
 backup=('etc/mpd.conf')
-install=install
 
 pkgver() {
   cd $_pkgname
@@ -28,43 +29,43 @@ pkgver() {
 }
 
 build() {
-  cd $_pkgname
+  	cd $_pkgname
 
-  ./autogen.sh
+  	./autogen.sh
 
-  ./configure \
-		--prefix=/usr \
-		--sysconfdir=/etc \
-		--enable-libmpdclient \
-		--enable-mad \
-		--enable-soxr \
-		--enable-ffmpeg \
+  	./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--enable-libmpdclient \
+	--enable-mad \
+	--enable-soxr \
+	--enable-ffmpeg \
         --enable-audiofile \
-		--enable-sndfile \
-		--enable-sacdiso \
-		--enable-dvdaiso \
-		--enable-pipe-output \
-		--disable-ao \
-		--disable-jack \
-		--disable-modplug \
-		--disable-pulse \
-		--disable-shout \
-		--disable-sidplay \
-		--disable-soundcloud \
-		--disable-wavpack \
-		--disable-opus \
-		--disable-vorbis \
-		--disable-ipv6 \
-		--disable-recorder-output \
-		--disable-iso9660 \
-		--disable-zzip \
-		--disable-wildmidi \
-		--disable-oss \
-		--disable-fluidsynth \
-		--disable-gme \
-		--disable-bzip2 \
-		--disable-lame-encoder \
-	    --disable-shine-encoder \
+	--enable-sndfile \
+	--enable-sacdiso \
+	--enable-dvdaiso \
+	--enable-pipe-output \
+	--disable-ao \
+	--disable-jack \
+	--disable-modplug \
+	--disable-pulse \
+	--disable-shout \
+	--disable-sidplay \
+	--disable-soundcloud \
+	--disable-wavpack \
+	--disable-opus \
+	--disable-vorbis \
+	--disable-ipv6 \
+	--disable-recorder-output \
+	--disable-iso9660 \
+	--disable-zzip \
+	--disable-wildmidi \
+	--disable-oss \
+	--disable-fluidsynth \
+	--disable-gme \
+	--disable-bzip2 \
+	--disable-lame-encoder \
+	--disable-shine-encoder \
         --disable-twolame-encoder \
         --disable-vorbis-encoder \
        	--disable-wave-encoder \
@@ -73,15 +74,15 @@ build() {
         --disable-httpd-output \
         --disable-oss \
         --disable-mikmod \
-		--disable-modplug \
+	--disable-modplug \
         --disable-mpg123 \
-	    --disable-wildmidi \
+	--disable-wildmidi \
         --disable-lsr \
-		--with-zeroconf=avahi \
-		--with-systemduserunitdir=/usr/lib/systemd/user \
-		--with-systemdsystemunitdir=/usr/lib/systemd/system
+	--with-zeroconf=avahi \
+	--with-systemduserunitdir=/usr/lib/systemd/user \
+	--with-systemdsystemunitdir=/usr/lib/systemd/system
 
-		make
+	make
 }
 
 package() {
@@ -91,7 +92,7 @@ package() {
 
 	install -Dm644 ../mpd.conf "${pkgdir}"/etc/mpd.conf
 	install -Dm644 ../tmpfiles.d "${pkgdir}"/usr/lib/tmpfiles.d/mpd.conf
-	install -d -g 45 -o 45 "${pkgdir}"/var/lib/mpd{,/playlists}
+	install -Dm644 ../sysusers.d "${pkgdir}"/usr/lib/sysusers.d/mpd.conf
 
 	install -Dm644 "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
 	sed '/WantedBy=/c WantedBy=default.target' -i "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
