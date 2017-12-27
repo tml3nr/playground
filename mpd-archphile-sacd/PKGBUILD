@@ -3,7 +3,7 @@
 
 pkgname=mpd-archphile-sacd
 _pkgname=mpd
-pkgver=r12401.affd5abe0
+pkgver=0.20.12
 pkgrel=1
 pkgdesc='Flexible, powerful, server-side application for playing music. Experimental version with support of SACD ISO playback'
 url='http://www.musicpd.org/'
@@ -17,16 +17,16 @@ source=('git+git://git.musicpd.org/manisiutkin/mpd.git'
         'tmpfiles.d'
 	'sysusers.d'
 	'mpd.conf')
-sha256sums=('SKIP'
-          '4e20576ea53141fc398f8e586f30bdf06a404ca099db037724ef80f15c7f2ea3'
-          '0b74c6e5db08daab3091dc15a6b0c75210ba2f9e98fa074f6cfd605a461056b6'
-          'c72530e7c8830c7524903b2fba72624f0730f89abd87bbe2744979c03baa8d1b')
+sha256sums=('git://git.musicpd.org/manisiutkin/mpd.git#commit=83096eec82eb4b8fe77b0e9cd33c6bca4cbfcb77'
+            '4e20576ea53141fc398f8e586f30bdf06a404ca099db037724ef80f15c7f2ea3'
+            '0b74c6e5db08daab3091dc15a6b0c75210ba2f9e98fa074f6cfd605a461056b6'
+            'c72530e7c8830c7524903b2fba72624f0730f89abd87bbe2744979c03baa8d1b')
 backup=('etc/mpd.conf')
 
-pkgver() {
-  cd $_pkgname
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-}
+#pkgver() {
+#  cd $_pkgname
+#  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+#}
 
 build() {
   	cd $_pkgname
@@ -97,5 +97,5 @@ package() {
 	install -Dm644 "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
 	sed '/WantedBy=/c WantedBy=default.target' -i "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
    	sed '/ExecStart=/c ExecStart=/usr/bin/nice -n -16 /usr/bin/mpd --no-daemon' -i "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
-    find "$pkgdir" -type d -name '.git' -exec rm -r '{}' +
+        find "$pkgdir" -type d -name '.git' -exec rm -r '{}' +
 }
