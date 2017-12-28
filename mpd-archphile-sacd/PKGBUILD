@@ -13,7 +13,7 @@ depends=('flac' 'audiofile' 'libsndfile' 'icu' 'libmad' 'curl' 'faad2' 'sqlite' 
 makedepends=('boost' 'doxygen' 'git')
 provides=("mpd=$pkgver")
 conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd' 'mpd-archphile-minimal')
-source=('git://git.musicpd.org/manisiutkin/mpd.git#commit=83096eec82eb4b8fe77b0e9cd33c6bca4cbfcb77'
+source=('git://git.musicpd.org/manisiutkin/mpd.git'
         'tmpfiles.d'
 	'sysusers.d'
 	'mpd.conf')
@@ -23,10 +23,10 @@ sha256sums=('SKIP'
             'c72530e7c8830c7524903b2fba72624f0730f89abd87bbe2744979c03baa8d1b')
 backup=('etc/mpd.conf')
 
-#pkgver() {
-#  cd $_pkgname
-#  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-#}
+pkgver() {
+  cd $_pkgname
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
 
 build() {
   	cd $_pkgname
