@@ -3,7 +3,7 @@
 
 pkgname=mpd-archphile-minimal-sacd
 _pkgname=mpd
-pkgver=0.20.12
+pkgver=r12401.affd5abe0
 pkgrel=1
 pkgdesc='Flexible, powerful, server-side application for playing music. Experimental minimal version with support of SACD ISO playback'
 url='http://www.musicpd.org/'
@@ -13,7 +13,7 @@ depends=('flac' 'libsndfile' 'icu' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'li
 makedepends=('boost' 'doxygen' 'git')
 provides=("mpd=$pkgver")
 conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd' 'mpd-archphile-minimal' 'mpd-archphile-minimal-sacd')
-source=('git://git.musicpd.org/manisiutkin/mpd.git#commit=83096eec82eb4b8fe77b0e9cd33c6bca4cbfcb77'
+source=('git://git.musicpd.org/manisiutkin/mpd.git'
         'tmpfiles.d'
 	'sysusers.d'
 	'mpd.conf')
@@ -23,10 +23,10 @@ sha256sums=('SKIP'
             '383b7ec06e0bba80be7a99945d7d862b221282af02b5a880f7c74425b5f14709')
 backup=('etc/mpd.conf')
 
-#pkgver() {
-#  cd $_pkgname
-#  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-#}
+pkgver() {
+  cd $_pkgname
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
 
 build() {
   	cd $_pkgname
