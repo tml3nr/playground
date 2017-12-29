@@ -9,7 +9,7 @@ pkgdesc='Flexible, powerful, server-side application for playing music. Experime
 url='http://www.musicpd.org/'
 license=('GPL')
 arch=('armv7h' 'aarch64')
-depends=('flac' 'libsndfile' 'icu' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient' 'libsoxr')
+depends=('flac' 'libsndfile' 'icu' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient' 'libsoxr' 'libupnp')
 makedepends=('boost' 'doxygen' 'git')
 provides=("mpd=$pkgver")
 conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd' 'mpd-archphile-minimal' 'mpd-archphile-minimal-sacd')
@@ -23,10 +23,10 @@ sha256sums=('SKIP'
             '383b7ec06e0bba80be7a99945d7d862b221282af02b5a880f7c74425b5f14709')
 backup=('etc/mpd.conf')
 
-pkgver() {
-  cd $_pkgname
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-}
+#pkgver() {
+#  cd $_pkgname
+#  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+#}
 
 build() {
   	cd $_pkgname
@@ -41,6 +41,7 @@ build() {
 	--enable-largefile \
 	--enable-aac \
 	--enable-sndfile \
+	--enable-upnp \
 	--enable-sacdiso \
 	--enable-dvdaiso \
 	--disable-audiofile \
@@ -71,8 +72,7 @@ build() {
         --disable-lsr \
         --disable-smbclient \
         --disable-soundcloud \
-   	--disable-upnp \
-        --disable-bzip2 \
+   	--disable-bzip2 \
 	--disable-iso9660 \
 	--disable-zlib \
         --disable-zzip \

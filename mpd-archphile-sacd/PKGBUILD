@@ -40,6 +40,7 @@ build() {
 	--enable-ffmpeg \
         --enable-audiofile \
 	--enable-sndfile \
+	--enable-upnp \
 	--enable-sacdiso \
 	--enable-dvdaiso \
 	--enable-pipe-output \
