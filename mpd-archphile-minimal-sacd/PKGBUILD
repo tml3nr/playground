@@ -9,7 +9,7 @@ pkgdesc='Flexible, powerful, server-side application for playing music. Experime
 url='http://www.musicpd.org/'
 license=('GPL')
 arch=('armv7h' 'aarch64')
-depends=('flac' 'libsndfile' 'icu' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient' 'libsoxr' 'libupnp')
+depends=('flac' 'libsndfile' 'icu' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient' 'libsoxr')
 makedepends=('boost' 'doxygen' 'git')
 provides=("mpd=$pkgver")
 conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd' 'mpd-archphile-minimal' 'mpd-archphile-minimal-sacd')
@@ -52,40 +52,37 @@ build() {
 	--disable-pulse \
 	--disable-shout \
 	--disable-sidplay \
-	--disable-soundcloud \
 	--disable-wavpack \
 	--disable-opus \
 	--disable-vorbis \
 	--disable-ipv6 \
 	--disable-recorder-output \
-	--disable-iso9660 \
-	--disable-zzip \
 	--disable-wildmidi \
 	--disable-oss \
 	--disable-fluidsynth \
 	--disable-gme \
-	--disable-bzip2 \
-	--disable-lame-encoder \
-	--disable-shine-encoder \
-    --disable-twolame-encoder \
-    --disable-vorbis-encoder \
-    --disable-wave-encoder \
-    --disable-nfs \
-    --disable-smbclient \
-    --disable-httpd-output \
-    --disable-oss \
-    --disable-mikmod \
+	--disable-nfs \
+	--disable-httpd-output \
+        --disable-oss \
+        --disable-mikmod \
 	--disable-modplug \
-    --disable-mpg123 \
+   	--disable-mpg123 \
 	--disable-wildmidi \
-    --disable-lsr \
-	--disable-lame-encoder \
-    --disable-shine-encoder \
-    --disable-twolame-encoder \
-    --disable-vorbis-encoder \
-    --disable-wave-encoder \
-    --disable-neighbor-plugins \
+        --disable-lsr \
+        --disable-smbclient \
+        --disable-soundcloud \
+   	--disable-upnp \
+        --disable-bzip2 \
+	--disable-iso9660 \
+	--disable-zlib \
+        --disable-zzip \
 	--disable-cdio-paranoia \
+	--disable-lame-encoder \
+        --disable-shine-encoder \
+        --disable-twolame-encoder \
+        --disable-vorbis-encoder \
+        --disable-wave-encoder \
+        --disable-neighbor-plugins \
 	--with-zeroconf=no \
 	--with-systemduserunitdir=/usr/lib/systemd/user \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system
