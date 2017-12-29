@@ -12,7 +12,7 @@ arch=('armv7h' 'aarch64')
 depends=('flac' 'audiofile' 'libsndfile' 'icu' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient' 'libsoxr' 'ffmpeg-archphile' 'avahi' 'libupnp')
 makedepends=('boost' 'doxygen' 'git')
 provides=("mpd=$pkgver")
-conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd' 'mpd-archphile-minimal' mpd-archphile-minimal-sacd')
+conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd' 'mpd-archphile-minimal' 'mpd-archphile-minimal-sacd')
 source=('git://git.musicpd.org/manisiutkin/mpd.git'
         'tmpfiles.d'
 	'sysusers.d'
