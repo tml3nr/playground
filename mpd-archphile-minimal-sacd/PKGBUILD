@@ -5,14 +5,14 @@ pkgname=mpd-archphile-minimal-sacd
 _pkgname=mpd
 pkgver=0.20.12
 pkgrel=1
-pkgdesc='Flexible, powerful, server-side application for playing music. Experimental minimal (without ffmpeg ect..) version with support of SACD ISO playback'
+pkgdesc='Flexible, powerful, server-side application for playing music. Experimental version with support of SACD ISO playback'
 url='http://www.musicpd.org/'
 license=('GPL')
 arch=('armv7h' 'aarch64')
-depends=('alsa-lib' 'libsndfile' 'flac' 'libsoxr' 'icu' 'libvorbis' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient')
+depends=('flac' 'libsndfile' 'icu' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient' 'libsoxr' 'libupnp')
 makedepends=('boost' 'doxygen' 'git')
 provides=("mpd=$pkgver")
-conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd' 'mpd-archphile-minimal' 'mpd-archphile-sacd')
+conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd' 'mpd-archphile-minimal' mpd-archphile-minimal-sacd')
 source=('git://git.musicpd.org/manisiutkin/mpd.git'
         'tmpfiles.d'
 	'sysusers.d'
@@ -20,7 +20,7 @@ source=('git://git.musicpd.org/manisiutkin/mpd.git'
 sha256sums=('SKIP'
             '4e20576ea53141fc398f8e586f30bdf06a404ca099db037724ef80f15c7f2ea3'
             '0b74c6e5db08daab3091dc15a6b0c75210ba2f9e98fa074f6cfd605a461056b6'
-            '383b7ec06e0bba80be7a99945d7d862b221282af02b5a880f7c74425b5f14709')
+            'c72530e7c8830c7524903b2fba72624f0730f89abd87bbe2744979c03baa8d1b')
 backup=('etc/mpd.conf')
 
 pkgver() {
@@ -34,65 +34,61 @@ build() {
   	./configure \
 	--prefix=/usr \
 	--sysconfdir=/etc \
-	--enable-sacdiso \
-	--enable-dvdaiso \
-	--enable-iso9660 \
-	--enable-pipe-output \
 	--enable-libmpdclient \
 	--enable-alsa \
 	--enable-mad \
-	--enable-aac \
-	--enable-vorbis \
-	--enable-curl \
-	--enable-mms \
-	--enable-id3 \
-	--enable-tcp \
-	--enable-largefile \
-	--enable-sndfile \
 	--enable-soxr \
-	--disable-libwrap \
+	--enable-largefile \
+	--enable-aac \
+	--enable-sndfile \
+	--enable-sacdiso \
+	--enable-dvdaiso \
+	--disable-audiofile \
+	--enable-ffmpeg \
+	--disable-pipe-output \
 	--disable-ao \
-   	--disable-httpd-output \
+	--disable-jack \
+	--disable-modplug \
+	--disable-pulse \
+	--disable-shout \
+	--disable-sidplay \
+	--disable-soundcloud \
+	--disable-wavpack \
+	--disable-opus \
+	--disable-vorbis \
+	--disable-ipv6 \
+	--disable-recorder-output \
 	--disable-iso9660 \
-    	--disable-jack \
-    	--disable-openal \
-    	--disable-oss \
-    	--disable-pulse \
-    	--disable-recorder-output \
-    	--disable-roar \
-    	--disable-shout \
-    	--disable-adplug \
-    	--disable-audiofile \
-    	--disable-ffmpeg \
-    	--disable-fluidsynth \
-    	--disable-gme \
-    	--disable-mikmod \
-    	--disable-modplug \
-    	--disable-mpg123 \
-   	--disable-opus \
-    	--disable-sidplay \
-    	--disable-wavpack \
-    	--disable-wildmidi \
-    	--disable-expat \
-    	--disable-ipv6 \
-    	--disable-nfs \
-    	--disable-smbclient \
-    	--disable-soundcloud \
-   	--disable-upnp \
-    	--disable-bzip2 \
-    	--disable-zlib \
-    	--disable-zzip \
-    	--disable-cdio-paranoia \
-    	--disable-lsr \
-    	--disable-lame-encoder \
+	--disable-zzip \
+	--disable-wildmidi \
+	--disable-oss \
+	--disable-fluidsynth \
+	--disable-gme \
+	--disable-bzip2 \
+	--disable-lame-encoder \
+	--disable-shine-encoder \
+        --disable-twolame-encoder \
+        --disable-vorbis-encoder \
+       	--disable-wave-encoder \
+       	--disable-nfs \
+        --disable-smbclient \
+        --disable-httpd-output \
+        --disable-oss \
+        --disable-mikmod \
+	--disable-modplug \
+        --disable-mpg123 \
+	--disable-wildmidi \
+        --disable-lsr \
+	--disable-lame-encoder \
     	--disable-shine-encoder \
     	--disable-twolame-encoder \
     	--disable-vorbis-encoder \
     	--disable-wave-encoder \
     	--disable-neighbor-plugins \
-    	--with-zeroconf=no \
+	--disable-cdio-paranoia \
+	--with-zeroconf=no \
 	--with-systemduserunitdir=/usr/lib/systemd/user \
-    	--with-systemdsystemunitdir=/usr/lib/systemd/system
+	--with-systemdsystemunitdir=/usr/lib/systemd/system
 
 	make
 }
