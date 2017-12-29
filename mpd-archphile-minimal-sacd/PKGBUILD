@@ -1,0 +1,114 @@
+# Maintainer: Tux <info@archphile.org>
+# Website: http://archphile.org
+
+pkgname=mpd-archphile-minimal-sacd
+_pkgname=mpd
+pkgver=0.20.12
+pkgrel=1
+pkgdesc='Flexible, powerful, server-side application for playing music. Experimental minimal (without ffmpeg ect..) version with support of SACD ISO playback'
+url='http://www.musicpd.org/'
+license=('GPL')
+arch=('armv7h' 'aarch64')
+depends=('alsa-lib' 'libsndfile' 'flac' 'libsoxr' 'icu' 'libvorbis' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient')
+makedepends=('boost' 'doxygen' 'git')
+provides=("mpd=$pkgver")
+conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd' 'mpd-archphile-minimal' 'mpd-archphile-sacd')
+source=('git://git.musicpd.org/manisiutkin/mpd.git'
+        'tmpfiles.d'
+	    'sysusers.d'
+	    'mpd.conf')
+sha256sums=('SKIP'
+            '4e20576ea53141fc398f8e586f30bdf06a404ca099db037724ef80f15c7f2ea3'
+            '0b74c6e5db08daab3091dc15a6b0c75210ba2f9e98fa074f6cfd605a461056b6'
+            '383b7ec06e0bba80be7a99945d7d862b221282af02b5a880f7c74425b5f14709')
+backup=('etc/mpd.conf')
+
+pkgver() {
+  cd $_pkgname
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  	cd $_pkgname
+
+  	./autogen.sh
+
+  	./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--enable-sacdiso \
+	--enable-dvdaiso \
+	--enable-iso9660 \
+	--enable-pipe-output \
+	--enable-libmpdclient \
+	--enable-alsa \
+	--enable-mad \
+	--enable-aac \
+	--enable-vorbis \
+	--enable-curl \
+	--enable-mms \
+	--enable-id3 \
+	--enable-tcp \
+	--enable-largefile \
+	--enable-sndfile \
+	--enable-soxr \
+	--disable-libwrap \
+	--disable-ao \
+   	--disable-httpd-output \
+    --disable-jack \
+    --disable-openal \
+    --disable-oss \
+    --disable-pulse \
+    --disable-recorder-output \
+    --disable-roar \
+    --disable-shout \
+    --disable-adplug \
+    --disable-audiofile \
+    --disable-ffmpeg \
+    --disable-fluidsynth \
+    --disable-gme \
+    --disable-mikmod \
+    --disable-modplug \
+    --disable-mpg123 \
+   	--disable-opus \
+    --disable-sidplay \
+    --disable-wavpack \
+    --disable-wildmidi \
+    --disable-expat \
+    --disable-ipv6 \
+    --disable-nfs \
+    --disable-smbclient \
+    --disable-soundcloud \
+   	--disable-upnp \
+    --disable-bzip2 \
+    --disable-zlib \
+    --disable-zzip \
+    --disable-cdio-paranoia \
+    --disable-lsr \
+    --disable-lame-encoder \
+    --disable-shine-encoder \
+    --disable-twolame-encoder \
+    --disable-vorbis-encoder \
+    --disable-wave-encoder \
+    --disable-neighbor-plugins \
+    --with-zeroconf=no \
+	--with-systemduserunitdir=/usr/lib/systemd/user \
+    --with-systemdsystemunitdir=/usr/lib/systemd/system
+
+	make
+}
+
+package() {
+	cd "${srcdir}/${_pkgname}"
+	
+	make DESTDIR="${pkgdir}" install
+
+	install -Dm644 ../mpd.conf "${pkgdir}"/etc/mpd.conf
+	install -Dm644 ../tmpfiles.d "${pkgdir}"/usr/lib/tmpfiles.d/mpd.conf
+	install -Dm644 ../sysusers.d "${pkgdir}"/usr/lib/sysusers.d/mpd.conf
+
+	install -Dm644 "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
+	sed '/WantedBy=/c WantedBy=default.target' -i "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
+   	sed '/ExecStart=/c ExecStart=/usr/bin/nice -n -16 /usr/bin/mpd --no-daemon' -i "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
+        find "$pkgdir" -type d -name '.git' -exec rm -r '{}' +
+}
