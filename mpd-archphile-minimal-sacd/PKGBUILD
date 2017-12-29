@@ -5,7 +5,7 @@ pkgname=mpd-archphile-minimal-sacd
 _pkgname=mpd
 pkgver=0.20.12
 pkgrel=1
-pkgdesc='Flexible, powerful, server-side application for playing music. Experimental version with support of SACD ISO playback'
+pkgdesc='Flexible, powerful, server-side application for playing music. Experimental minimal version with support of SACD ISO playback'
 url='http://www.musicpd.org/'
 license=('GPL')
 arch=('armv7h' 'aarch64')
@@ -105,5 +105,5 @@ package() {
 	install -Dm644 "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
 	sed '/WantedBy=/c WantedBy=default.target' -i "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
    	sed '/ExecStart=/c ExecStart=/usr/bin/nice -n -16 /usr/bin/mpd --no-daemon' -i "${pkgdir}"/usr/lib/systemd/{system,user}/mpd.service
-        find "$pkgdir" -type d -name '.git' -exec rm -r '{}' +
+    find "$pkgdir" -type d -name '.git' -exec rm -r '{}' +
 }
