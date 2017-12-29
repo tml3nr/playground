@@ -12,7 +12,7 @@ arch=('armv7h' 'aarch64')
 depends=('flac' 'libsndfile' 'icu' 'libmad' 'curl' 'faad2' 'sqlite' 'libmms' 'libid3tag' 'libmpdclient' 'libsoxr' 'libupnp')
 makedepends=('boost' 'doxygen' 'git')
 provides=("mpd=$pkgver")
-conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd' 'mpd-archphile-minimal' mpd-archphile-minimal-sacd')
+conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd' 'mpd-archphile-minimal' 'mpd-archphile-minimal-sacd')
 source=('git://git.musicpd.org/manisiutkin/mpd.git'
         'tmpfiles.d'
 	'sysusers.d'
@@ -20,7 +20,7 @@ source=('git://git.musicpd.org/manisiutkin/mpd.git'
 sha256sums=('SKIP'
             '4e20576ea53141fc398f8e586f30bdf06a404ca099db037724ef80f15c7f2ea3'
             '0b74c6e5db08daab3091dc15a6b0c75210ba2f9e98fa074f6cfd605a461056b6'
-            'c72530e7c8830c7524903b2fba72624f0730f89abd87bbe2744979c03baa8d1b')
+            '383b7ec06e0bba80be7a99945d7d862b221282af02b5a880f7c74425b5f14709')
 backup=('etc/mpd.conf')
 
 pkgver() {
@@ -67,24 +67,24 @@ build() {
 	--disable-bzip2 \
 	--disable-lame-encoder \
 	--disable-shine-encoder \
-        --disable-twolame-encoder \
-        --disable-vorbis-encoder \
-       	--disable-wave-encoder \
-       	--disable-nfs \
-        --disable-smbclient \
-        --disable-httpd-output \
-        --disable-oss \
-        --disable-mikmod \
+    --disable-twolame-encoder \
+    --disable-vorbis-encoder \
+    --disable-wave-encoder \
+    --disable-nfs \
+    --disable-smbclient \
+    --disable-httpd-output \
+    --disable-oss \
+    --disable-mikmod \
 	--disable-modplug \
-        --disable-mpg123 \
+    --disable-mpg123 \
 	--disable-wildmidi \
-        --disable-lsr \
+    --disable-lsr \
 	--disable-lame-encoder \
-    	--disable-shine-encoder \
-    	--disable-twolame-encoder \
-    	--disable-vorbis-encoder \
-    	--disable-wave-encoder \
-    	--disable-neighbor-plugins \
+    --disable-shine-encoder \
+    --disable-twolame-encoder \
+    --disable-vorbis-encoder \
+    --disable-wave-encoder \
+    --disable-neighbor-plugins \
 	--disable-cdio-paranoia \
 	--with-zeroconf=no \
 	--with-systemduserunitdir=/usr/lib/systemd/user \
