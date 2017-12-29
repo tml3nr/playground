@@ -44,7 +44,7 @@ build() {
 	--enable-sacdiso \
 	--enable-dvdaiso \
 	--disable-audiofile \
-	--enable-ffmpeg \
+	--disable-ffmpeg \
 	--disable-pipe-output \
 	--disable-ao \
 	--disable-jack \
