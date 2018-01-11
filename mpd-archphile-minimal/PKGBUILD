@@ -23,7 +23,7 @@ source=("https://www.musicpd.org/download/${_pkgname}/0.20/${_pkgname}-${pkgver}
 sha256sums=('95b513c7e41e1a5c72462e2a84fbc1cff87a7043a77b49e4e248cb05e260f495'
 	    '4e20576ea53141fc398f8e586f30bdf06a404ca099db037724ef80f15c7f2ea3'
             '0b74c6e5db08daab3091dc15a6b0c75210ba2f9e98fa074f6cfd605a461056b6'
-            'c494b91b2af48bc6239b779deb62c5b8e0132e9d5194fc94b3a6eef166ec75f5')
+            '81a5544ec234843affba1c47d2995dac1b8d853d80ccfadde4a437cbb7abcedc')
 backup=('etc/mpd.conf')
 
 build() {

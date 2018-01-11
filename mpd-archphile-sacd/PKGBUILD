@@ -20,7 +20,7 @@ source=('git://git.musicpd.org/manisiutkin/mpd.git'
 sha256sums=('SKIP'
             '4e20576ea53141fc398f8e586f30bdf06a404ca099db037724ef80f15c7f2ea3'
             '0b74c6e5db08daab3091dc15a6b0c75210ba2f9e98fa074f6cfd605a461056b6'
-            'c72530e7c8830c7524903b2fba72624f0730f89abd87bbe2744979c03baa8d1b')
+            '7b4bc6ce6c386f1dcdaba6092a11932f14711e56e1c2a8174c88f071d71712a0')
 backup=('etc/mpd.conf')
 
 pkgver() {
