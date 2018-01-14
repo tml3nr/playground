@@ -1,17 +1,16 @@
 # Maintainer: Tux <info@archphile.org>
 # Website: http://archphile.org
-# Based on mpd-light from AUR made by the following people:
-#  (c) Adrian Smith 2012-2015, triode1@btinternet.com
-#      Ralph Irving 2015-2016, ralph_irving@hotmail.com
+# Based on squeezelite-git from AUR made by the following people:
+# IanDury
 
 pkgname=squeezelite-archphile
-pkgver=v1.8.5_809.637e941
+pkgver=v1.8.6_825.1b96b62
 pkgrel=1
-pkgdesc='Lightweight headless squeezebox emulator'
+pkgdesc='Lightweight headless squeezebox emulator with Native DSD patch'
 arch=('armv7h' 'aarch64')
 url='https://github.com/ralph-irving/squeezelite'
 license=(GPL3)
-makedepends=('ffmpeg')
+makedepends=('ffmpeg-archphile')
 depends=('alsa-lib' 'faad2' 'flac' 'libmad' 'libvorbis' 'mpg123' 'libsoxr')
 provides=('squeezelite')
 conflicts=('squeezelite')
@@ -32,7 +31,7 @@ pkgver() {
 
 build() {
 	cd squeezelite
-
+	cat ./scripts/squeezelite-ralphy-dsd.patch | patch -p 0
 	export LDFLAGS="${LDFLAGS} -lasound -lpthread -lm -lrt"
 	export CFLAGS="${CFLAGS} -DDSD -DRESAMPLE -DVISEXPORT -DFFMPEG"
 	export OPTS="${OPTS} -DIR"
@@ -51,7 +50,7 @@ package() {
 
 
 sha256sums=('SKIP'
-            '3a1c7762f08cabf82929de1862622c836cf644c5733de7834b02dd9562e76a45'
-            '7397ba58a9296a10c85a27ea691137d18581d8d8188b8e774439f37a57440f5f'
+            '15695d9dbb94e41f7aae7450dcfa9fbba83f25f4d8f2427e872c20c302e486cc'
+            'f3595f1953dfc1864a0f247478562341bfc2cb100e4640ba6016e9689fde37734'
             '2c52ea3b2916f9d67e3029506eabba2dabb3193c2833bcc7d2ff268d3a9ab5b9')
 

@@ -22,7 +22,7 @@ BUFFER="-b 40000:6000000"
 #PRIORITY="-p 45"
 
 # -c <codec1>,<codec2> - Restrict codecs to those specified, otherwise load all available codecs; known codecs: 
-CODEC="-c flac,pcm,mp3,ogg,aac,alac"
+CODEC="-c flac,pcm,mp3,ogg,aac,alac,dsd"
 
 # -D [delay] - Output device supports DSD over PCM (DoP), delay = optional delay switching between PCM and DoP in ms
 DOP="-D"
