@@ -13,7 +13,7 @@ depends=('flac' 'audiofile' 'libsndfile' 'icu' 'libmad' 'curl' 'faad2' 'sqlite' 
 makedepends=('boost' 'doxygen' 'git')
 provides=("mpd=$pkgver")
 conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-native-dsd' 'mpd-archphile-minimal' 'mpd-archphile-minimal-sacd')
-source=('git://git.musicpd.org/manisiutkin/mpd.git'
+source=('git://git.code.sf.net/p/sacddecoder/mpd/MPD.git'
         'tmpfiles.d'
 	'sysusers.d'
 	'mpd.conf')
