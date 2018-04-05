@@ -4,7 +4,7 @@
 # IanDury
 
 pkgname=squeezelite-archphile
-pkgver=v1.8.6_825.1b96b62
+pkgver=v1.8.7_1052.37f5fe6
 pkgrel=1
 pkgdesc='Lightweight headless squeezebox emulator with Native DSD patch'
 arch=('armv7h' 'aarch64')
@@ -50,7 +50,7 @@ package() {
 
 
 sha256sums=('SKIP'
-            '15695d9dbb94e41f7aae7450dcfa9fbba83f25f4d8f2427e872c20c302e486cc'
-            'f3595f1953dfc1864a0f247478562341bfc2cb100e4640ba6016e9689fde37734'
+            '6f9930e9f67ceac64f93dc6fea06728e1eba7cb3ccac167feb0bf1823a88dd3c'
+            '136d358d90b696ab696e284b2c1093ab104f5a41058277c249880f5b3d3bfa81'
             '2c52ea3b2916f9d67e3029506eabba2dabb3193c2833bcc7d2ff268d3a9ab5b9')
 

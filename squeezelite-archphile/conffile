@@ -16,7 +16,7 @@ LOG_LEVEL="-d all=info"
 ALSA_PARAMS='-a 160:40::1'
 
 # -b <stream>:<output> - Specify internal Stream and Output buffer sizes in Kbytes
-BUFFER="-b 40000:6000000"
+BUFFER="-b 40000:500000"
 
 -p <priority> - Set real time priority of output thread (1-99)
 #PRIORITY="-p 45"

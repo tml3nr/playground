@@ -18,7 +18,7 @@ ExecStart=/usr/bin/squeezelite\
  $MAX_RATE $AUDIO_DEV\
  $BUFFER $CODEC $ALSA_PARAMS $VOLUME\
  $LOG_FILE $LOG_LEVEL\
- $UPSAMPLE $DOP $VISULIZER $SERVER_IP
+ $UPSAMPLE $DOP $SERVER_IP
 
 [Install]
 WantedBy=multi-user.target
