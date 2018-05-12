@@ -1,9 +1,0 @@
-#!/bin/bash
-# This is a quick and dirty script that installs squeezelite and logitechmediaserver on Archphile
-
-pacman -Sy squeezelite-archphile logitechmediaserver
-pacman -Scc
-wget https://raw.githubusercontent.com/archphile/playground/master/files/mpdfy -O /usr/bin/mpdfy
-wget https://raw.githubusercontent.com/archphile/playground/master/files/squeezfy -O /usr/bin/squeezfy
-chmod 755 /usr/bin/mpdfy
-chmod 755 /usr/bin/squeezfy
