@@ -13,10 +13,9 @@ ExecStart=/usr/bin/librespot \
   --password ${LIBRESPOT_PASSWORD} \
   --initial-volume 100
 
-
 Restart=always
-#StartLimitInterval=30
-#StartLimitBurst=20
+StartLimitInterval=30
+StartLimitBurst=20
 User=librespot
 Group=audio
 
