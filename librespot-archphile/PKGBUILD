@@ -17,7 +17,7 @@ source=('git://github.com/librespot-org/librespot.git'
 'librespot.sysusers'
 'librespot.tmpfiles')
 sha256sums=('SKIP'
-            'd699826126309266c905d9c3bf5b0d2b43edab1cd4c881281a5330d2b0ee34ec '
+            'c78261ccb9ce453a1fb2ebc089b53644266a19edd0026a916be21043f9267550'
             'a2091a0bd5941b178af496e471e96e857349d683bcbda735f2eb5cb7c1cecb03'
             'cd05d40dcc1572aba86aed732b5e0e47ff644d6c40380cc2d2b4d80acc2c2b1f'
             '61b68cf5776374218caf525d707a52bf14d349e4f1a7c8ef76b8ed5789f19114')

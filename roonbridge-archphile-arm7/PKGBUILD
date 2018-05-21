@@ -4,8 +4,8 @@
 # Maintainer: AudioLinux  <audiolinux AT fastmail DOT fm>
 
 pkgname=roonbridge-archphile-arm7
-pkgver=1.3
-pkgrel=4
+pkgver=1.0.156
+pkgrel=1
 pkgdesc="The music player for music lovers"
 arch=('armv7h')
 url="https://roonlabs.com/"
