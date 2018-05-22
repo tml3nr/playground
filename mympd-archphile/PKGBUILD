@@ -17,7 +17,7 @@ optdepends=()
 provides=("${_pkgname}")
 conflicts=("${_pkgname}")
 replaces=('ympd-archphile')
-#source=("git+https://github.com/jcorporation/ympd.git"
+#source=("git+https://github.com/jcorporation/ympd.git#commit=a6b614b8c19b1c4c14e836ffc677a79908e50e36'"
          "ympd.service")
 
 sha256sums=('SKIP'
