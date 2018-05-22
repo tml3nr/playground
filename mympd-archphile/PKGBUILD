@@ -4,7 +4,7 @@
 # Maintainer: Philippe Mongeau <ph.mongeau@gmail.com>
 
 pkgname=mympd-archphile
-_pkgname=mympd
+_pkgname=ympd
 pkgver=1.2.3.r55.g4295d15
 pkgrel=2
 pkgdesc="A standalone MPD Web GUI based on YMPD - Default port set to 80"
@@ -17,7 +17,7 @@ optdepends=()
 provides=("${_pkgname}")
 conflicts=("${_pkgname}")
 replaces=('ympd-archphile')
-#source=("git+https://github.com/jcorporation/ympd.git#commit=a6b614b8c19b1c4c14e836ffc677a79908e50e36'"
+source=("git+https://github.com/jcorporation/ympd.git#commit=a6b614b8c19b1c4c14e836ffc677a79908e50e36"
          "ympd.service")
 
 sha256sums=('SKIP'
@@ -41,7 +41,7 @@ package() {
   cd "${srcdir}/${_pkgname}/build"
   make DESTDIR="$pkgdir/" install
 #  install -Dm644  "${srcdir}/${_pkgname}/contrib/mympd.service" "$pkgdir/usr/lib/systemd/system/mympd.service"
-  install -Dm644  "../../mympd.service" "$pkgdir/usr/lib/systemd/system/ympd.service"
+  install -Dm644  "../../ympd.service" "$pkgdir/usr/lib/systemd/system/ympd.service"
   install -Dm644  "${srcdir}/${_pkgname}/contrib/ympd.default" "$pkgdir/etc/default/ympd"
   sed '/WEB_PORT=8080/c WEB_PORT=80' -i "$pkgdir/etc/default/ympd"
 }
