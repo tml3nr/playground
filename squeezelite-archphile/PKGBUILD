@@ -4,14 +4,14 @@
 # IanDury
 
 pkgname=squeezelite-archphile
-pkgver=v1.8.7_1052.37f5fe6
+pkgver=v1.9.0_1098.b2ed99e
 pkgrel=1
 pkgdesc='Lightweight headless squeezebox emulator with Native DSD patch'
 arch=('armv7h' 'aarch64')
 url='https://github.com/ralph-irving/squeezelite'
 license=(GPL3)
 makedepends=('ffmpeg-archphile')
-depends=('alsa-lib' 'faad2' 'flac' 'libmad' 'libvorbis' 'mpg123' 'libsoxr')
+depends=('alsa-lib' 'faad2' 'flac' 'libmad' 'libvorbis' 'mpg123' 'libsoxr' 'ffmpeg-archphile')
 provides=('squeezelite')
 conflicts=('squeezelite')
 source=('git+https://github.com/ralph-irving/squeezelite'
@@ -31,10 +31,9 @@ pkgver() {
 
 build() {
 	cd squeezelite
-	cat ./scripts/squeezelite-ralphy-dsd.patch | patch -p 0
+#	cat ./scripts/squeezelite-ralphy-dsd.patch | patch -p 0
 	export LDFLAGS="${LDFLAGS} -lasound -lpthread -lm -lrt"
-	export CFLAGS="${CFLAGS} -DDSD -DRESAMPLE -DVISEXPORT -DFFMPEG"
-	export OPTS="${OPTS} -DIR"
+	export OPTS="${OPTS} -DDSD -DRESAMPLE -DVISEXPORT -DFFMPEG -DLINKALL"
 	make
 }
 
