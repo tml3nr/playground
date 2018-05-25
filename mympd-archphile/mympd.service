@@ -1,5 +1,5 @@
 [Unit]
-Description=ympd server daemon
+Description=mympd server daemon
 Requires=network.target local-fs.target
 
 [Service]
@@ -7,11 +7,11 @@ Environment=MPD_HOST=localhost
 Environment=MPD_PORT=6600
 #Environment=MPD_PASSWORD=
 Environment=WEB_PORT=8080
-Environment=YMPD_USER=nobody
+Environment=MYMPD_USER=nobody
 Environment=DIGEST=
 Environment=LOCALPORT=
-EnvironmentFile=/etc/default/ympd
-ExecStart=/usr/bin/ympd --user $YMPD_USER --webport $WEB_PORT --host $MPD_HOST --port $MPD_PORT
+EnvironmentFile=/etc/default/mympd
+ExecStart=/usr/bin/mympd --user $YMPD_USER --webport $WEB_PORT --host $MPD_HOST --port $MPD_PORT $DIGEST $LOCALPORT
 Type=simple
 
 [Install]
