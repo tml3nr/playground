@@ -4,9 +4,9 @@
 # Maintainer: Philippe Mongeau <ph.mongeau@gmail.com>
 
 pkgname=mympd-archphile
-_pkgname=mympd
-pkgver=1.2.3.r55.g4295d15
-pkgrel=2
+_pkgname=ympd
+pkgver=2.0.0.r1.g8044718
+pkgrel=1
 pkgdesc="A standalone MPD Web GUI based on YMPD - Default port set to 80"
 arch=('armv7h' 'aarch64')
 url="http://github.org/jcorporation"
@@ -14,8 +14,8 @@ license=('BSD')
 depends=('libmpdclient' 'openssl')
 makedepends=('cmake' 'git')
 optdepends=()
-provides=("${_pkgname}")
-conflicts=("${_pkgname}")
+provides=()
+conflicts=()
 replaces=()
 source=("git+https://github.com/jcorporation/ympd.git"
          "mympd.service")
