@@ -4,7 +4,7 @@
 # Maintainer: Philippe Mongeau <ph.mongeau@gmail.com>
 
 pkgname=mympd-archphile
-_pkgname=ympd
+_pkgname=mympd
 pkgver=2.0.0.r1.g8044718
 pkgrel=1
 pkgdesc="A standalone MPD Web GUI based on YMPD - Default port set to 80"
@@ -17,11 +17,10 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("git+https://github.com/jcorporation/ympd.git"
+source=("git+https://github.com/jcorporation/myMPD.git"
          "mympd.service")
 
-sha256sums=('SKIP'
-	    '4f41e7051d27af61e725b16677ea4753fa1772f9ab9c9ac676b9a38ddd74de4f')
+sha256sums=('SKIP')
 
 pkgver() {
   cd "${srcdir}/${_pkgname}"
@@ -40,9 +39,10 @@ build() {
 package() {
   cd "${srcdir}/${_pkgname}/build"
   make DESTDIR="$pkgdir/" install
-  install -Dm644  "${srcdir}/${_pkgname}/contrib/mympd.service" "$pkgdir/usr/lib/systemd/system/mympd.service"
-#  install -Dm644  "../../mympd.service" "$pkgdir/usr/lib/systemd/system/mympd.service"
+#  install -Dm644  "${srcdir}/${_pkgname}/contrib/mympd.service" "$pkgdir/usr/lib/systemd/system/mympd.service"
+  install -Dm644  "../../mympd.service" "$pkgdir/usr/lib/systemd/system/mympd.service"
   install -Dm644  "${srcdir}/${_pkgname}/contrib/mympd.default" "$pkgdir/etc/default/mympd"
   sed '/WEB_PORT=8080/c WEB_PORT=80' -i "$pkgdir/etc/default/mympd"
+  sed '/COVERIMAGE=--coverimage folder.jpg/c COVERIMAGE=--coverimage Folder.jpg' -i "$pkgdir/etc/default/mympd"
 }
 

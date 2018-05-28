@@ -10,6 +10,7 @@ Environment=WEB_PORT=8080
 Environment=MYMPD_USER=nobody
 Environment=DIGEST=
 Environment=LOCALPORT=
+Environment=COVERIMAGE=--coverimage Folder.jpg
 EnvironmentFile=/etc/default/mympd
 ExecStart=/usr/bin/mympd --user $YMPD_USER --webport $WEB_PORT --host $MPD_HOST --port $MPD_PORT $DIGEST $LOCALPORT
 Type=simple
