@@ -17,7 +17,7 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("git+https://github.com/jcorporation/myMPD.git#commit=e37c678a8998c8886364782dd75282d29cd42b93")
+source=("git+https://github.com/jcorporation/myMPD.git")
 sha256sums=('SKIP')
 
 pkgver() {
