@@ -42,8 +42,5 @@ package() {
   install -Dm644  "${srcdir}/${_pkgname}/contrib/mympd.default" "$pkgdir/etc/default/mympd"
   sed '/WEB_PORT=8080/c WEB_PORT=80' -i "$pkgdir/etc/default/mympd"
   sed '/COVERIMAGE=--coverimage folder.jpg/c COVERIMAGE=--coverimage Folder.jpg' -i "$pkgdir/etc/default/mympd"
-  sudo sed -i -e 's/mpd\.css/mpd\.min\.css/' -e 's/mpd\.js/mpd\.min\.js/' "$pkgdir/usr/share/mympd/htdocs/index.html"
-  sudo sed -i -e 's/mpd\.css/mpd\.min\.css/' -e 's/player\.js/player\.min\.js/' "$pkgdir/usr/share/mympd/htdocs/player.html"
-  chown nobody "$pkgdir/var/lib/mympd"
 }
 
