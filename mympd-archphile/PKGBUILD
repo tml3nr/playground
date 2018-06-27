@@ -30,7 +30,7 @@ build() {
   cd "${srcdir}/${_pkgname}"
 
  
-  mkdir build && cd build
+  mkdir release && cd release
   cmake .. -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_BUILD_TYPE=RELEASE
   make
 }
