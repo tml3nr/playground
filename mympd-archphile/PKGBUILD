@@ -5,7 +5,7 @@
 
 pkgname=mympd-archphile
 _pkgname=myMPD
-pkgver=2.0.0.r1.g8044718
+pkgver=2.2.1.r14.g6fe4e99
 pkgrel=1
 pkgdesc="A standalone MPD Web GUI based on YMPD - Default port set to 80"
 arch=('armv7h' 'aarch64')
@@ -17,7 +17,7 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
-install=mympd-archphile.install
+#install=mympd-archphile.install
 source=("git+https://github.com/jcorporation/myMPD.git#commit=6fe4e997c289889f075c3cef7394caf178f5cde3")
 sha256sums=('SKIP')
 
@@ -31,12 +31,12 @@ build() {
 
  
   mkdir release && cd release
-  cmake .. -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_BUILD_TYPE=RELEASE
+  cmake .. -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_BUILD_TYPE=RELEASE ..
   make
 }
 
 package() {
-  cd "${srcdir}/${_pkgname}/build"
+  cd "${srcdir}/${_pkgname}/release"
   make DESTDIR="$pkgdir/" install
   
   install -Dm644  "${srcdir}/${_pkgname}/contrib/mympd.service" "$pkgdir/usr/lib/systemd/system/mympd.service"
