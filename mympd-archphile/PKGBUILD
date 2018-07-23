@@ -42,22 +42,25 @@ package() {
   install -Dm644  "${srcdir}/${_pkgname}/contrib/mympd.service" "$pkgdir/usr/lib/systemd/system/mympd.service"
   install -Dm644  "${srcdir}/${_pkgname}/contrib/options" "$pkgdir/etc/default/options"
   
-  # FIXES FOR OPTIONS
+  # FIXES FOR OPTIONS (based on CultofRobots PKGBUILD)
   sed 's/^SSL/#SSL/' -i "$pkgdir/etc/default/options"
   sed '/COVERIMAGE=--coverimage folder.jpg/c COVERIMAGE=Folder.jpg' -i "$pkgdir/etc/default/options"
-  sed '/STATEFILE=--statefile \/var\/lib\/mympd\/mympd.state/c STATEFILE=\/var\/lib\/mympd\/mympd.state' -i "$pkgdir/etc/mympd/options"
+  sed '/STATEFILE=--statefile \/var\/lib\/mympd\/mympd.state/c STATEFILE=\/var\/lib\/mympd\/mympd.state' -i "$pkgdir/etc/default/options"
 
-  # FIXES FOR SERVICE FILE 
+  # FIXES FOR SERVICE FILE (based on CultofRobots PKGBUILD)
   sed '/Requires=/s/$/ mpd.service/' -i "$pkgdir/usr/lib/systemd/system/mympd.service"
   sed '/Environment=COVERIMAGE=--coverimage folder.jpg/c Environment=COVERIMAGE=folder.jpg' -i "$pkgdir/usr/lib/systemd/system/mympd.service"
   sed '/Environment=STATEFILE=--statefile \/var\/lib\/mympd\/mympd.state/c Environment=STATEFILE=\/var\/lib\/mympd\/mympd.state' -i "$pkgdir/usr/lib/systemd/system/mympd.service"
   sed 's/$COVERIMAGE/--coverimage $COVERIMAGE/g' -i "$pkgdir/usr/lib/systemd/system/mympd.service"
   sed 's/$STATEFILE/--statefile  $STATEFILE/g' -i "$pkgdir/usr/lib/systemd/system/mympd.service"
   
-  sed -i -e 's/mpd\.css/mpd\.min\.css/' -e 's/mpd\.js/mpd\.min\.js/' $pkgdir/usr/share/mympd/htdocs/index.html 
-  sed -i -e 's/mpd\.css/mpd\.min\.css/' -e 's/mpd\.js/mpd\.min\.js/' -e 's/player\.js/player\.min\.js/' $pkgdir/usr/share/mympd/htdocs/sw.min.js
-  sed -i -e 's/\/sw\.js/\/sw\.min\.js/' $pkgdir/usr/share/mympd/htdocs/js/mpd.min.js
-  perl -i -pe 's/^\s*//gm; s/\s*$//gm' $pkgdir/usr/share/mympd/htdocs/index.html
-  perl -i -pe 's/^\s*//gm; s/\s*$//gm' $pkgdir/usr/share/mympd/htdocs/player.html 
+  # Replacing javascript and stylesheets with minified files
+  sed -i -e 's/mpd\.css/mpd\.min\.css/' -e 's/mpd\.js/mpd\.min\.js/' '$pkgdir/usr/share/mympd/htdocs/index.html' 
+  sed -i -e 's/mpd\.css/mpd\.min\.css/' -e 's/mpd\.js/mpd\.min\.js/' -e 's/player\.js/player\.min\.js/' '$pkgdir/usr/share/mympd/htdocs/sw.min.js'
+  sed -i -e 's/\/sw\.js/\/sw\.min\.js/' '$pkgdir/usr/share/mympd/htdocs/js/mpd.min.js'
+  
+  # Minifying html
+  perl -i -pe 's/^\s*//gm; s/\s*$//gm' '$pkgdir/usr/share/mympd/htdocs/index.html'
+  perl -i -pe 's/^\s*//gm; s/\s*$//gm' '$pkgdir/usr/share/mympd/htdocs/player.html' 
 }
 
