@@ -40,12 +40,12 @@ package() {
   make DESTDIR="$pkgdir/" install
   
   install -Dm644  "${srcdir}/${_pkgname}/contrib/mympd.service" "$pkgdir/usr/lib/systemd/system/mympd.service"
-  install -Dm644  "${srcdir}/${_pkgname}/contrib/options" "$pkgdir/etc/default/options"
+  install -Dm644  "${srcdir}/${_pkgname}/contrib/options" "$pkgdir/etc/mympd/options"
   
   # FIXES FOR OPTIONS (based on CultofRobots PKGBUILD)
-  sed 's/^SSL/#SSL/' -i "$pkgdir/etc/default/options"
-  sed '/COVERIMAGE=--coverimage folder.jpg/c COVERIMAGE=Folder.jpg' -i "$pkgdir/etc/default/options"
-  sed '/STATEFILE=--statefile \/var\/lib\/mympd\/mympd.state/c STATEFILE=\/var\/lib\/mympd\/mympd.state' -i "$pkgdir/etc/default/options"
+  sed 's/^SSL/#SSL/' -i "$pkgdir/etc/mympd/options"
+  sed '/COVERIMAGE=--coverimage folder.jpg/c COVERIMAGE=Folder.jpg' -i "$pkgdir/etc/mympd/options"
+  sed '/STATEFILE=--statefile \/var\/lib\/mympd\/mympd.state/c STATEFILE=\/var\/lib\/mympd\/mympd.state' -i "$pkgdir/etc/mympd/options"
 
   # FIXES FOR SERVICE FILE (based on CultofRobots PKGBUILD)
   sed '/Requires=/s/$/ mpd.service/' -i "$pkgdir/usr/lib/systemd/system/mympd.service"
