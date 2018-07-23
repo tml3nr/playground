@@ -56,7 +56,7 @@ package() {
   
   # Replacing javascript and stylesheets with minified files
   sed -i -e 's/mpd\.css/mpd\.min\.css/' -e 's/mpd\.js/mpd\.min\.js/' $pkgdir/usr/share/mympd/htdocs/index.html
-  sed -i -e 's/mpd\.css/mpd\.min\.css/' -e 's/mpd\.js/mpd\.min\.js/' -e s/player\.js/player\.min\.js/' '$pkgdir/usr/share/mympd/htdocs/sw.min.js
+  sed -i -e 's/mpd\.css/mpd\.min\.css/' -e 's/mpd\.js/mpd\.min\.js/' -e 's/player\.js/player\.min\.js/' $pkgdir/usr/share/mympd/htdocs/sw.min.js
   sed -i -e 's/\/sw\.js/\/sw\.min\.js/' $pkgdir/usr/share/mympd/htdocs/js/mpd.min.js
   
   # Minifying html
