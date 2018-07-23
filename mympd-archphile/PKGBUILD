@@ -43,8 +43,8 @@ package() {
   install -Dm644  "${srcdir}/${_pkgname}/contrib/options" "$pkgdir/etc/default/options"
   
   # FIXES FOR OPTIONS
-  sed 's/^SSL/#SSL/' -i "$pkgdir/etc/mympd/options"
-  sed '/COVERIMAGE=--coverimage folder.jpg/c COVERIMAGE=Folder.jpg' -i "$pkgdir/etc/mympd/options"
+  sed 's/^SSL/#SSL/' -i "$pkgdir/etc/default/options"
+  sed '/COVERIMAGE=--coverimage folder.jpg/c COVERIMAGE=Folder.jpg' -i "$pkgdir/etc/default/options"
   sed '/STATEFILE=--statefile \/var\/lib\/mympd\/mympd.state/c STATEFILE=\/var\/lib\/mympd\/mympd.state' -i "$pkgdir/etc/mympd/options"
 
   # FIXES FOR SERVICE FILE 
