@@ -21,7 +21,7 @@ install=mympd-archphile.install
 source=("git+https://github.com/jcorporation/myMPD.git"
         "mympd.conf")
 sha256sums=('SKIP'
-            '2d2526a1aaf66e7e746cede4681e11b797411b6dc34936c7a5c7bf5a7fb9576')
+            '2d2526a1aaf66e7e746cede4681e11b797411b6dc34936c7a5c7bf5a7fb9576c')
 
 pkgver() {
   cd "${srcdir}/${_pkgname}"
@@ -42,15 +42,16 @@ package() {
   make DESTDIR="$pkgdir/" install
   
   install -Dm644  "${srcdir}/${_pkgname}/contrib/mympd.service" "$pkgdir/usr/lib/systemd/system/mympd.service"
-  install -Dm644  ../mympd.conf "$pkgdir/etc/mympd/mympd.conf"
+  install -Dm644  "${srcdir}/mympd.conf" "$pkgdir/etc/mympd/mympd.conf"
   
   # Replacing javascript and stylesheets with minified files
-  sed -i -e 's/mpd\.css/mpd\.min\.css/' -e 's/mpd\.js/mpd\.min\.js/' $pkgdir/usr/share/mympd/htdocs/index.html
-  sed -i -e 's/mpd\.css/mpd\.min\.css/' -e 's/mpd\.js/mpd\.min\.js/' -e 's/player\.js/player\.min\.js/' $pkgdir/usr/share/mympd/htdocs/sw.min.js
-  sed -i -e 's/\/sw\.js/\/sw\.min\.js/' $pkgdir/usr/share/mympd/htdocs/js/mpd.min.js
+  sed -e 's/mympd\.css/mympd\.min\.css/' -e 's/mympd\.js/mympd\.min\.js/' ${srcdir}/${_pkgname}/htdocs/index.html > ${srcdir}/${_pkgname}/dist/htdocs/index.html
+  sed -e 's/mympd\.css/mympd\.min\.css/' -e 's/player\.js/player\.min\.js/' ${srcdir}/${_pkgname}/htdocs/player.html > ${srcdir}/${_pkgname}/dist/htdocs/player.html
+  sed -i -e 's/mympd\.css/mympd\.min\.css/' -e 's/mympd\.js/mympd\.min\.js/' -e 's/player\.js/player\.min\.js/' ${srcdir}/${_pkgname}/dist/htdocs/sw.min.js
+  sed -i -e 's/\/sw\.js/\/sw\.min\.js/' ${srcdir}/${_pkgname}-${pkgver}/dist/htdocs/js/mympd.min.js
   
   # Minifying html
-  perl -i -pe 's/^\s*//gm; s/\s*$//gm' $pkgdir/usr/share/mympd/htdocs/index.html
-  perl -i -pe 's/^\s*//gm; s/\s*$//gm' $pkgdir/usr/share/mympd/htdocs/player.html
+  perl -i -pe 's/^\s*//gm; s/\s*$//gm' ${srcdir}/${_pkgname}-${pkgver}/dist/htdocs/index.html
+  perl -i -pe 's/^\s*//gm; s/\s*$//gm' ${srcdir}/${_pkgname}-${pkgver}/dist/htdocs/player.html
 }
 
