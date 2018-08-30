@@ -20,7 +20,7 @@ source=('git://git.code.sf.net/p/sacddecoder/mpd/MPD.git'
 sha256sums=('SKIP'
             '4e20576ea53141fc398f8e586f30bdf06a404ca099db037724ef80f15c7f2ea3'
             '0b74c6e5db08daab3091dc15a6b0c75210ba2f9e98fa074f6cfd605a461056b6'
-            '48a2a09b06ba06aa097aaf3844d6a4130994d30f5bb755af973dd2434e570ce9')
+            '18663aceba48195973801b84cec9d33a7117b3468a3f0df9cc5e3db0f89272b5')
 backup=('etc/mpd.conf')
 
 pkgver() {
