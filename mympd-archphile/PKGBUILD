@@ -18,8 +18,10 @@ provides=()
 conflicts=()
 replaces=()
 install=mympd-archphile.install
-source=("git+https://github.com/jcorporation/myMPD.git")
-sha256sums=('SKIP')
+source=("git+https://github.com/jcorporation/myMPD.git"
+        "mympd.conf")
+sha256sums=('SKIP'
+            '2d2526a1aaf66e7e746cede4681e11b797411b6dc34936c7a5c7bf5a7fb9576')
 
 pkgver() {
   cd "${srcdir}/${_pkgname}"
@@ -40,7 +42,7 @@ package() {
   make DESTDIR="$pkgdir/" install
   
   install -Dm644  "${srcdir}/${_pkgname}/contrib/mympd.service" "$pkgdir/usr/lib/systemd/system/mympd.service"
-  install -Dm644  "${srcdir}/${_pkgname}/contrib/options" "$pkgdir/etc/mympd/options"
+  install -Dm644  ../mympd.conf "$pkgdir/etc/mympd/mympd.conf"
   
   # Replacing javascript and stylesheets with minified files
   sed -i -e 's/mpd\.css/mpd\.min\.css/' -e 's/mpd\.js/mpd\.min\.js/' $pkgdir/usr/share/mympd/htdocs/index.html
