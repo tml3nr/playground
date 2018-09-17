@@ -5,7 +5,7 @@
 
 pkgname=squeezelite-archphile
 pkgver=v1.9.0_1098.b2ed99e
-pkgrel=1
+pkgrel=2
 pkgdesc='Lightweight headless squeezebox emulator with Native DSD patch'
 arch=('armv7h' 'aarch64')
 url='https://github.com/ralph-irving/squeezelite'
@@ -19,6 +19,10 @@ source=('git+https://github.com/ralph-irving/squeezelite'
 	'conffile'
 	'install'
 	)
+sha256sums=('SKIP'
+            '6f9930e9f67ceac64f93dc6fea06728e1eba7cb3ccac167feb0bf1823a88dd3c'
+            '136d358d90b696ab696e284b2c1093ab104f5a41058277c249880f5b3d3bfa81'
+            '2c52ea3b2916f9d67e3029506eabba2dabb3193c2833bcc7d2ff268d3a9ab5b9')
 
 install=install
 
@@ -48,8 +52,5 @@ package() {
 }
 
 
-sha256sums=('SKIP'
-            '6f9930e9f67ceac64f93dc6fea06728e1eba7cb3ccac167feb0bf1823a88dd3c'
-            '136d358d90b696ab696e284b2c1093ab104f5a41058277c249880f5b3d3bfa81'
-            '2c52ea3b2916f9d67e3029506eabba2dabb3193c2833bcc7d2ff268d3a9ab5b9')
+
 

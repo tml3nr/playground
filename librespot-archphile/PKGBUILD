@@ -45,8 +45,7 @@ package() {
   install -Dm755 "${srcdir}/${_pkgname}/target/release/librespot" "${pkgdir}/usr/bin/librespot"
   install -Dm644 "${srcdir}/librespot.conf" "${pkgdir}/etc/librespot.conf"
   install -Dm644 "${srcdir}/librespot.service" "${pkgdir}/usr/lib/systemd/system/librespot.service"
-#  install -Dm644 "${srcdir}/librespot.sysusers" "${pkgdir}/usr/lib/sysusers.d/librespot.conf"
-#  install -Dm644 "${srcdir}/librespot.tmpfiles" "${pkgdir}/usr/lib/tmpfiles.d/librespot.conf"
+
 }
 
 

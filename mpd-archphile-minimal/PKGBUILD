@@ -21,7 +21,7 @@ source=("https://www.musicpd.org/download/${_pkgname}/0.20/${_pkgname}-${pkgver}
 	'sysusers.d'
 	'mpd.conf')
 sha256sums=('8322764dc265c20f05c8c8fdfdd578b0722e74626bef56fcd8eebfb01acc58dc'
-	    '4e20576ea53141fc398f8e586f30bdf06a404ca099db037724ef80f15c7f2ea3'
+            '4e20576ea53141fc398f8e586f30bdf06a404ca099db037724ef80f15c7f2ea3'
             '0b74c6e5db08daab3091dc15a6b0c75210ba2f9e98fa074f6cfd605a461056b6'
             '2f100fef24a1d60f4639c76aa76b737a87939fd2f8d799a31e613f1b3602d5ed')
 backup=('etc/mpd.conf')
