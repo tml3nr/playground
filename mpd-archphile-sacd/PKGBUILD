@@ -3,17 +3,18 @@
 
 pkgname=mpd-archphile-sacd
 _pkgname=MPD
-pkgver=r12401.affd5abe0
+pkgver=0.21.5
 pkgrel=1
 pkgdesc='Flexible, powerful, server-side application for playing music. Experimental version with support of SACD ISO playback'
 url='http://www.musicpd.org/'
 license=('GPL')
 arch=('armv7h' 'aarch64')
-depends=('audiofile' 'avahi' 'curl' 'faad2' 'ffmpeg-archphile' 'icu' 'libid3tag' 'libmad' 'libmms' 'libmpdclient' 'libsndfile' 'libupnp' 'libsoxr' 'libgme' 'sqlite' 'wavpack' 'zziplib')
+depends=('audiofile' 'avahi' 'curl' 'faad2' 'ffmpeg-archphile' 'icu' 'libcdio-paranoia' 'libid3tag' 'libmad' 'libmms' 'libmpdclient' 
+'libsndfile' 'libupnp' 'libsoxr' 'libgme' 'sqlite' 'wavpack' 'zziplib')
 makedepends=('boost' 'meson' 'python-sphinx')
 provides=("mpd=$pkgver")
 conflicts=('mpd' 'mpd-archphile' 'mpd-archphile-minimal')
-source=('git://git.code.sf.net/p/sacddecoder/mpd/MPD.git'
+source=('mpd::git+https://git.code.sf.net/p/sacddecoder/mpd/MPD.git#commit=f95306d636e5a2f79a198ff184c2e09ebd2f9039'
         'tmpfiles.d'
 	'sysusers.d'
 	'mpd.conf')
@@ -23,13 +24,14 @@ sha256sums=('SKIP'
             '18663aceba48195973801b84cec9d33a7117b3468a3f0df9cc5e3db0f89272b5')
 backup=('etc/mpd.conf')
 
-pkgver() {
-  cd $_pkgname
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-}
+#pkgver() {
+#  cd $_pkgname
+#  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+#}
 
 build() {
-	cd "${srcdir}/mpd-${pkgver}/build"
+#	cd "${srcdir}/${_pkgname}"
+        cd "${srcdir}/mpd/build"
 	_opts=('-Ddocumentation=true'
 	       '-Dzeroconf=avahi'
 	       '-Dao=disabled'
@@ -63,21 +65,24 @@ build() {
 	       '-Dchromaprint=disabled'
 	       '-Dsndio=disabled' 
 	       '-Dshine=disabled' 
-	       '-Dyajl=disabled' 		
 	       '-Dopenal=disabled'
  	       '-Dadplug=disabled' 
  	       '-Dmpcdec=disabled' 
+	       '-Dyajl=disabled'
+	       '-Dqobuz=disabled'
+	       '-Dtidal=disabled'
 	       '-Dsacdiso=true'
 	       '-Ddvdaiso=true'
                '-Dbzip2=enabled'
                '-Diso9660=enabled'
 	)
-	arch-meson --auto-features auto  .. ${_opts[@]}
+	arch-meson  .. ${_opts[@]}
 	ninja
 }
 
 package() {
-	cd "${srcdir}/${_pkgname}-${pkgver}/build"
+#	cd "${srcdir}/${_pkgname}-${pkgver}/build"
+	cd "${srcdir}/mpd/build"
 	DESTDIR="${pkgdir}" ninja install
         install -Dm644 ../doc/mpdconf.example "${pkgdir}"/usr/share/doc/mpd/mpdconf.example
 	install -Dm644 ../doc/mpd.conf.5 "${pkgdir}"/usr/share/man/man5/mpd.conf.5
