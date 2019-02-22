@@ -17,7 +17,7 @@ Restart=always
 #RestartSec=10
 StartLimitInterval=30
 StartLimitBurst=20
-User=librespot
+User=nobody
 Group=audio
 
 [Install]
